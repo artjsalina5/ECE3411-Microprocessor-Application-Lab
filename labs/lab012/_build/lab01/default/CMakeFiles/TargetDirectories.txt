@@ -1,0 +1,4 @@
+C:/home/ece3411/labs/lab012/_build/lab01/default/CMakeFiles/lab01_default_toolchain_XC8_3_00_compile.dir
+C:/home/ece3411/labs/lab012/_build/lab01/default/CMakeFiles/lab01_default_image_LV6_YV5Q.dir
+C:/home/ece3411/labs/lab012/_build/lab01/default/CMakeFiles/edit_cache.dir
+C:/home/ece3411/labs/lab012/_build/lab01/default/CMakeFiles/rebuild_cache.dir

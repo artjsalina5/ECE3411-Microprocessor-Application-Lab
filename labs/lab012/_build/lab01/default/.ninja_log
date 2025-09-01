@@ -1,0 +1,7 @@
+# ninja log v7
+45	972	7780268312516100	CMakeFiles/lab01_default_toolchain_XC8_3_00_compile.dir/C_/home/ece3411/labs/lab012/main.c.o	8df6476b66f60855
+973	1468	7780268321796080	C:/home/ece3411/labs/lab012/out/lab01/default.elf	74b560fc066c34cb
+39	622	7780268898791047	build.ninja	31a604c4c640a062
+39	622	7780268898791047	C:/home/ece3411/labs/lab012/_build/lab01/default/cmake_install.cmake	31a604c4c640a062
+18	426	7780268899585302	CMakeFiles/lab01_default_toolchain_XC8_3_00_compile.dir/C_/home/ece3411/labs/lab012/main.c.o	8df6476b66f60855
+426	536	7780268903665471	C:/home/ece3411/labs/lab012/out/lab01/default.elf	74b560fc066c34cb

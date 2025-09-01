@@ -153,14 +153,16 @@ int main(void) {
   VPORT_OUT  = 0b00000000;
 
   while (1) {
-    VPORTD.OUT = 0b1111111; // Turns on all ports
+    VPORTD.OUT = 0b11111111; // Turns on all ports
     _delay_ms(1000);
     VPORTD.OUT = 0b00000000;
     _delay_ms(1000);
   }
-
 }
+```
+
 ## Bit Shifting
+
 ```c
 |= Set
 &= Clear
