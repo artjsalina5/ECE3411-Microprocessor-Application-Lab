@@ -1,0 +1,92 @@
+# cmake files support debug production
+include("${CMAKE_CURRENT_LIST_DIR}/rule.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/file.cmake")
+
+set(circular_buffers_uart_default_library_list )
+
+# Handle files with suffix s, for group default-AVR-GCC
+if(circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_assemble)
+add_library(circular_buffers_uart_default_default_AVR_GCC_assemble OBJECT ${circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_assemble})
+    circular_buffers_uart_default_default_AVR_GCC_assemble_rule(circular_buffers_uart_default_default_AVR_GCC_assemble)
+    list(APPEND circular_buffers_uart_default_library_list "$<TARGET_OBJECTS:circular_buffers_uart_default_default_AVR_GCC_assemble>")
+endif()
+
+# Handle files with suffix S, for group default-AVR-GCC
+if(circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_assembleWithPreprocess)
+add_library(circular_buffers_uart_default_default_AVR_GCC_assembleWithPreprocess OBJECT ${circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_assembleWithPreprocess})
+    circular_buffers_uart_default_default_AVR_GCC_assembleWithPreprocess_rule(circular_buffers_uart_default_default_AVR_GCC_assembleWithPreprocess)
+    list(APPEND circular_buffers_uart_default_library_list "$<TARGET_OBJECTS:circular_buffers_uart_default_default_AVR_GCC_assembleWithPreprocess>")
+endif()
+
+# Handle files with suffix [cC], for group default-AVR-GCC
+if(circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_compile)
+add_library(circular_buffers_uart_default_default_AVR_GCC_compile OBJECT ${circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_compile})
+    circular_buffers_uart_default_default_AVR_GCC_compile_rule(circular_buffers_uart_default_default_AVR_GCC_compile)
+    list(APPEND circular_buffers_uart_default_library_list "$<TARGET_OBJECTS:circular_buffers_uart_default_default_AVR_GCC_compile>")
+endif()
+
+# Handle files with suffix cpp, for group default-AVR-GCC
+if(circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_compile_cpp)
+add_library(circular_buffers_uart_default_default_AVR_GCC_compile_cpp OBJECT ${circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_compile_cpp})
+    circular_buffers_uart_default_default_AVR_GCC_compile_cpp_rule(circular_buffers_uart_default_default_AVR_GCC_compile_cpp)
+    list(APPEND circular_buffers_uart_default_library_list "$<TARGET_OBJECTS:circular_buffers_uart_default_default_AVR_GCC_compile_cpp>")
+endif()
+
+# Handle files with suffix elf, for group default-AVR-GCC
+if(circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_objcopy_ihex)
+add_library(circular_buffers_uart_default_default_AVR_GCC_objcopy_ihex OBJECT ${circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_objcopy_ihex})
+    circular_buffers_uart_default_default_AVR_GCC_objcopy_ihex_rule(circular_buffers_uart_default_default_AVR_GCC_objcopy_ihex)
+    list(APPEND circular_buffers_uart_default_library_list "$<TARGET_OBJECTS:circular_buffers_uart_default_default_AVR_GCC_objcopy_ihex>")
+endif()
+
+# Handle files with suffix elf, for group default-AVR-GCC
+if(circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_objcopy_eep)
+add_library(circular_buffers_uart_default_default_AVR_GCC_objcopy_eep OBJECT ${circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_objcopy_eep})
+    circular_buffers_uart_default_default_AVR_GCC_objcopy_eep_rule(circular_buffers_uart_default_default_AVR_GCC_objcopy_eep)
+    list(APPEND circular_buffers_uart_default_library_list "$<TARGET_OBJECTS:circular_buffers_uart_default_default_AVR_GCC_objcopy_eep>")
+endif()
+
+# Handle files with suffix elf, for group default-AVR-GCC
+if(circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_objcopy_lss)
+add_library(circular_buffers_uart_default_default_AVR_GCC_objcopy_lss OBJECT ${circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_objcopy_lss})
+    circular_buffers_uart_default_default_AVR_GCC_objcopy_lss_rule(circular_buffers_uart_default_default_AVR_GCC_objcopy_lss)
+    list(APPEND circular_buffers_uart_default_library_list "$<TARGET_OBJECTS:circular_buffers_uart_default_default_AVR_GCC_objcopy_lss>")
+endif()
+
+# Handle files with suffix elf, for group default-AVR-GCC
+if(circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_objcopy_srec)
+add_library(circular_buffers_uart_default_default_AVR_GCC_objcopy_srec OBJECT ${circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_objcopy_srec})
+    circular_buffers_uart_default_default_AVR_GCC_objcopy_srec_rule(circular_buffers_uart_default_default_AVR_GCC_objcopy_srec)
+    list(APPEND circular_buffers_uart_default_library_list "$<TARGET_OBJECTS:circular_buffers_uart_default_default_AVR_GCC_objcopy_srec>")
+endif()
+
+# Handle files with suffix elf, for group default-AVR-GCC
+if(circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_objcopy_sig)
+add_library(circular_buffers_uart_default_default_AVR_GCC_objcopy_sig OBJECT ${circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_objcopy_sig})
+    circular_buffers_uart_default_default_AVR_GCC_objcopy_sig_rule(circular_buffers_uart_default_default_AVR_GCC_objcopy_sig)
+    list(APPEND circular_buffers_uart_default_library_list "$<TARGET_OBJECTS:circular_buffers_uart_default_default_AVR_GCC_objcopy_sig>")
+endif()
+
+
+add_executable(circular_buffers_uart_default_image_U07nky7I ${circular_buffers_uart_default_library_list})
+
+set_target_properties(circular_buffers_uart_default_image_U07nky7I PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${circular_buffers_uart_default_output_dir})
+set_target_properties(circular_buffers_uart_default_image_U07nky7I PROPERTIES OUTPUT_NAME "default")
+set_target_properties(circular_buffers_uart_default_image_U07nky7I PROPERTIES SUFFIX ".elf")
+         
+
+target_link_libraries(circular_buffers_uart_default_image_U07nky7I PRIVATE ${circular_buffers_uart_default_default_AVR_GCC_FILE_TYPE_link})
+
+#Add objcopy steps
+circular_buffers_uart_default_objcopy_ihex_rule(circular_buffers_uart_default_image_U07nky7I)
+circular_buffers_uart_default_objcopy_eep_rule(circular_buffers_uart_default_image_U07nky7I)
+circular_buffers_uart_default_objcopy_lss_rule(circular_buffers_uart_default_image_U07nky7I)
+circular_buffers_uart_default_objcopy_srec_rule(circular_buffers_uart_default_image_U07nky7I)
+circular_buffers_uart_default_objcopy_sig_rule(circular_buffers_uart_default_image_U07nky7I)
+
+# Add the link options from the rule file.
+circular_buffers_uart_default_link_rule(circular_buffers_uart_default_image_U07nky7I)
+
+
+
+

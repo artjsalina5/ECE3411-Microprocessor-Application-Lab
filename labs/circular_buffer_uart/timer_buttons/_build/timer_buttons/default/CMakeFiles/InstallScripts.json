@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

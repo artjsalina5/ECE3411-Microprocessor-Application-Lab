@@ -1,0 +1,17 @@
+CompileFlags:
+  Add:
+    - -I/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/xc8/avr/include/
+    - -I/home/artj/Documents/ECE3411uCLab/labs/include/
+    - -std=c11
+    - -Wall
+    - -Wextra
+
+    # Optional: expose your build/debug symbols as plain macros so headers parse cleanly.
+    - -D__MPLAB_BUILD=1
+    - -D__MPLAB_DEBUG=1
+    - -D__DEBUG=1
+
+    # Optional: quiet GCC-specific attributes/pragmas that clang may not know.
+    - -Wno-unknown-attributes
+    - -Wno-unknown-pragmas
+

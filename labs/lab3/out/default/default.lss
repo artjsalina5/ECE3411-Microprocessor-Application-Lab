@@ -1,0 +1,939 @@
+
+out/default/default.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn  Flags
+  0 .data         00000000  00804000  00804000  000004d2  2**0  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000047e  00000000  00000000  00000054  2**1  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  000004d2  2**0  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000504  2**2  CONTENTS, READONLY
+  4 .debug_aranges 00000050  00000000  00000000  00000548  2**3  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000415d  00000000  00000000  00000598  2**0  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000349d  00000000  00000000  000046f5  2**0  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000005ff  00000000  00000000  00007b92  2**0  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000044  00000000  00000000  00008194  2**2  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00001b32  00000000  00000000  000081d8  2**0  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000096b  00000000  00000000  00009d0a  2**0  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 000000f8  00000000  00000000  0000a675  2**0  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+__vectors():
+../../../../crt1/gcrt1.S:61
+   0:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__ctors_end>
+../../../../crt1/gcrt1.S:67
+   4:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:68
+   8:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:69
+   c:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:70
+  10:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:71
+  14:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:72
+  18:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:73
+  1c:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:74
+  20:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:75
+  24:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:76
+  28:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:77
+  2c:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:78
+  30:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:79
+  34:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:80
+  38:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:81
+  3c:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:82
+  40:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:83
+  44:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:84
+  48:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:85
+  4c:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:86
+  50:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:87
+  54:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:88
+  58:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:89
+  5c:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:90
+  60:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:91
+  64:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:92
+  68:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:93
+  6c:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:94
+  70:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:95
+  74:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:96
+  78:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:97
+  7c:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:98
+  80:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:99
+  84:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:100
+  88:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:101
+  8c:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:102
+  90:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:103
+  94:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:104
+  98:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:105
+  9c:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:106
+  a0:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:107
+  a4:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:108
+  a8:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:109
+  ac:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:110
+  b0:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:111
+  b4:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:112
+  b8:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:113
+  bc:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:114
+  c0:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:115
+  c4:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:116
+  c8:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:117
+  cc:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:118
+  d0:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:119
+  d4:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:120
+  d8:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:121
+  dc:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:122
+  e0:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:123
+  e4:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:124
+  e8:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:125
+  ec:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+../../../../crt1/gcrt1.S:126
+  f0:	0c 94 84 00 	jmp	0x108	; 0x108 <__bad_interrupt>
+
+000000f4 <__ctors_end>:
+__trampolines_start():
+../../../../crt1/gcrt1.S:230
+  f4:	11 24       	eor	r1, r1
+../../../../crt1/gcrt1.S:231
+  f6:	1f be       	out	0x3f, r1	; 63
+../../../../crt1/gcrt1.S:232
+  f8:	cf ef       	ldi	r28, 0xFF	; 255
+../../../../crt1/gcrt1.S:234
+  fa:	cd bf       	out	0x3d, r28	; 61
+../../../../crt1/gcrt1.S:236
+  fc:	df e7       	ldi	r29, 0x7F	; 127
+../../../../crt1/gcrt1.S:237
+  fe:	de bf       	out	0x3e, r29	; 62
+../../../../crt1/gcrt1.S:314
+ 100:	0e 94 9e 00 	call	0x13c	; 0x13c <main>
+../../../../crt1/gcrt1.S:315
+ 104:	0c 94 3d 02 	jmp	0x47a	; 0x47a <_exit>
+
+00000108 <__bad_interrupt>:
+__vector_38():
+../../../../crt1/gcrt1.S:209
+ 108:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000010c <init_cpu>:
+init_cpu():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:9
+
+#include <avr/cpufunc.h>
+#include <util/delay.h>
+
+void init_cpu() {
+  ccp_write_io((void *)&(CLKCTRL.OSCHFCTRLA), CLKCTRL_FRQSEL_16M_gc);
+ 10c:	6c e1       	ldi	r22, 0x1C	; 28
+ 10e:	88 e6       	ldi	r24, 0x68	; 104
+ 110:	90 e0       	ldi	r25, 0x00	; 0
+ 112:	0e 94 37 02 	call	0x46e	; 0x46e <ccp_write_io>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:10
+}
+ 116:	08 95       	ret
+
+00000118 <debounceInput>:
+debounceInput():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:17
+// #include <avr/ioavr128db48.h>
+#include <stdbool.h>
+#include <stdint.h>
+
+bool debounceInput(uint8_t port, uint8_t pin) {
+  if (!(port & (1 << pin))) {
+ 118:	90 e0       	ldi	r25, 0x00	; 0
+ 11a:	02 c0       	rjmp	.+4      	; 0x120 <debounceInput+0x8>
+ 11c:	95 95       	asr	r25
+ 11e:	87 95       	ror	r24
+ 120:	6a 95       	dec	r22
+ 122:	e2 f7       	brpl	.-8      	; 0x11c <debounceInput+0x4>
+ 124:	80 fd       	sbrc	r24, 0
+ 126:	08 c0       	rjmp	.+16     	; 0x138 <debounceInput+0x20>
+_delay_ms():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/include/util/delay.h:187
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 128:	8f e3       	ldi	r24, 0x3F	; 63
+ 12a:	9c e9       	ldi	r25, 0x9C	; 156
+ 12c:	01 97       	sbiw	r24, 0x01	; 1
+ 12e:	f1 f7       	brne	.-4      	; 0x12c <debounceInput+0x14>
+ 130:	00 c0       	rjmp	.+0      	; 0x132 <debounceInput+0x1a>
+ 132:	00 00       	nop
+debounceInput():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:20
+    _delay_ms(10);
+    if (!(port & (1 << pin))) {
+      return true;
+ 134:	81 e0       	ldi	r24, 0x01	; 1
+ 136:	08 95       	ret
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:23
+    }
+  }
+  return false;
+ 138:	80 e0       	ldi	r24, 0x00	; 0
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:24
+}
+ 13a:	08 95       	ret
+
+0000013c <main>:
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:74
+    return FREQ_MAX;
+  return (uint8_t)f;
+}
+
+int main(void) {
+  init_cpu();
+ 13c:	0e 94 86 00 	call	0x10c	; 0x10c <init_cpu>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:76
+
+  PORTD.DIRSET = 0xFF; // PD0..PD7 = outputs
+ 140:	e0 e6       	ldi	r30, 0x60	; 96
+ 142:	f4 e0       	ldi	r31, 0x04	; 4
+ 144:	8f ef       	ldi	r24, 0xFF	; 255
+ 146:	81 83       	std	Z+1, r24	; 0x01
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:77
+  PORTD.OUTCLR = 0xFF; // all off
+ 148:	86 83       	std	Z+6, r24	; 0x06
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:79
+
+  PORTB.PIN2CTRL |= PORT_PULLUPEN_bm;
+ 14a:	e0 e2       	ldi	r30, 0x20	; 32
+ 14c:	f4 e0       	ldi	r31, 0x04	; 4
+ 14e:	82 89       	ldd	r24, Z+18	; 0x12
+ 150:	88 60       	ori	r24, 0x08	; 8
+ 152:	82 8b       	std	Z+18, r24	; 0x12
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:80
+  PORTB.PIN5CTRL |= PORT_PULLUPEN_bm;
+ 154:	85 89       	ldd	r24, Z+21	; 0x15
+ 156:	88 60       	ori	r24, 0x08	; 8
+ 158:	85 8b       	std	Z+21, r24	; 0x15
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:82
+
+  PORTB.DIRCLR = (1 << 2) | (1 << 5);
+ 15a:	84 e2       	ldi	r24, 0x24	; 36
+ 15c:	82 83       	std	Z+2, r24	; 0x02
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:86
+
+  uint8_t led_idx = 2;   // Active LED: 0..7
+  uint8_t freq = 3;      // 3 Hz
+  uint8_t direction = 1; // 1: up, 0: down
+ 15e:	aa 24       	eor	r10, r10
+ 160:	a3 94       	inc	r10
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:85
+  PORTB.PIN5CTRL |= PORT_PULLUPEN_bm;
+
+  PORTB.DIRCLR = (1 << 2) | (1 << 5);
+
+  uint8_t led_idx = 2;   // Active LED: 0..7
+  uint8_t freq = 3;      // 3 Hz
+ 162:	03 e0       	ldi	r16, 0x03	; 3
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:84
+  PORTB.PIN2CTRL |= PORT_PULLUPEN_bm;
+  PORTB.PIN5CTRL |= PORT_PULLUPEN_bm;
+
+  PORTB.DIRCLR = (1 << 2) | (1 << 5);
+
+  uint8_t led_idx = 2;   // Active LED: 0..7
+ 164:	68 94       	set
+ 166:	bb 24       	eor	r11, r11
+ 168:	b1 f8       	bld	r11, 1
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:90
+  uint8_t freq = 3;      // 3 Hz
+  uint8_t direction = 1; // 1: up, 0: down
+
+  while (1) {
+
+    bool BTN1 = debounceInput(PORTB.IN, 2); // Port B, Pin 2
+ 16a:	c0 e2       	ldi	r28, 0x20	; 32
+ 16c:	d4 e0       	ldi	r29, 0x04	; 4
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:120
+        if (led_idx > 0)
+          led_idx--;
+        if (led_idx == 0)
+          direction = true;
+      }
+      PORTD.OUTSET = (1 << led_idx);
+ 16e:	cc 24       	eor	r12, r12
+ 170:	c3 94       	inc	r12
+ 172:	d1 2c       	mov	r13, r1
+ 174:	0f 2e       	mov	r0, r31
+ 176:	f0 e6       	ldi	r31, 0x60	; 96
+ 178:	ef 2e       	mov	r14, r31
+ 17a:	f4 e0       	ldi	r31, 0x04	; 4
+ 17c:	ff 2e       	mov	r15, r31
+ 17e:	f0 2d       	mov	r31, r0
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:118
+      } else {
+        PORTD.OUTCLR = (1 << led_idx);
+        if (led_idx > 0)
+          led_idx--;
+        if (led_idx == 0)
+          direction = true;
+ 180:	99 24       	eor	r9, r9
+ 182:	93 94       	inc	r9
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:117
+          direction = false;
+      } else {
+        PORTD.OUTCLR = (1 << led_idx);
+        if (led_idx > 0)
+          led_idx--;
+        if (led_idx == 0)
+ 184:	81 2c       	mov	r8, r1
+ 186:	3d c1       	rjmp	.+634    	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+clamp_freq():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:67
+  }
+}
+
+static inline uint8_t clamp_freq(int16_t f) {
+  if (f < FREQ_MIN)
+    return FREQ_MIN;
+ 188:	01 e0       	ldi	r16, 0x01	; 1
+ 18a:	3b c1       	rjmp	.+630    	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:95
+    bool BTN1 = debounceInput(PORTB.IN, 2); // Port B, Pin 2
+    bool BTN2 = debounceInput(PORTB.IN, 5); // Port B, Pin 5
+
+    if (!BTN1 && !BTN2) {
+      // Blink the selected LED once at current freq
+      PORTD.OUTSET = (1 << led_idx);
+ 18c:	c6 01       	movw	r24, r12
+ 18e:	0b 2c       	mov	r0, r11
+ 190:	02 c0       	rjmp	.+4      	; 0x196 <main+0x5a>
+ 192:	88 0f       	add	r24, r24
+ 194:	99 1f       	adc	r25, r25
+ 196:	0a 94       	dec	r0
+ 198:	e2 f7       	brpl	.-8      	; 0x192 <main+0x56>
+ 19a:	f7 01       	movw	r30, r14
+ 19c:	85 83       	std	Z+5, r24	; 0x05
+delay_halfperiod_by_freq():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:28
+  return false;
+}
+enum { FREQ_MIN = 1, FREQ_MAX = 10 };
+
+static inline void delay_halfperiod_by_freq(uint8_t f) {
+  switch (f) {
+ 19e:	ef ef       	ldi	r30, 0xFF	; 255
+ 1a0:	e0 0f       	add	r30, r16
+ 1a2:	ea 30       	cpi	r30, 0x0A	; 10
+ 1a4:	08 f0       	brcs	.+2      	; 0x1a8 <main+0x6c>
+ 1a6:	e3 c0       	rjmp	.+454    	; 0x36e <__EEPROM_REGION_LENGTH__+0x16e>
+ 1a8:	f0 e0       	ldi	r31, 0x00	; 0
+ 1aa:	e7 52       	subi	r30, 0x27	; 39
+ 1ac:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1ae:	0c 94 2e 02 	jmp	0x45c	; 0x45c <__tablejump2__>
+ 1b2:	e3 00       	.word	0x00e3	; ????
+ 1b4:	f9 00       	.word	0x00f9	; ????
+ 1b6:	0f 01       	movw	r0, r30
+ 1b8:	21 01       	movw	r4, r2
+ 1ba:	37 01       	movw	r6, r14
+ 1bc:	4d 01       	movw	r8, r26
+ 1be:	61 01       	movw	r12, r2
+ 1c0:	75 01       	movw	r14, r10
+ 1c2:	8b 01       	movw	r16, r22
+ 1c4:	a1 01       	movw	r20, r2
+_delay_ms():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/include/util/delay.h:187
+ 1c6:	ff ef       	ldi	r31, 0xFF	; 255
+ 1c8:	29 e6       	ldi	r18, 0x69	; 105
+ 1ca:	38 e1       	ldi	r19, 0x18	; 24
+ 1cc:	f1 50       	subi	r31, 0x01	; 1
+ 1ce:	20 40       	sbci	r18, 0x00	; 0
+ 1d0:	30 40       	sbci	r19, 0x00	; 0
+ 1d2:	e1 f7       	brne	.-8      	; 0x1cc <main+0x90>
+ 1d4:	00 c0       	rjmp	.+0      	; 0x1d6 <main+0x9a>
+ 1d6:	00 00       	nop
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:97
+
+    if (!BTN1 && !BTN2) {
+      // Blink the selected LED once at current freq
+      PORTD.OUTSET = (1 << led_idx);
+      delay_halfperiod_by_freq(freq);
+      PORTD.OUTCLR = (1 << led_idx);
+ 1d8:	f7 01       	movw	r30, r14
+ 1da:	86 83       	std	Z+6, r24	; 0x06
+_delay_ms():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/include/util/delay.h:187
+ 1dc:	ff ef       	ldi	r31, 0xFF	; 255
+ 1de:	29 e6       	ldi	r18, 0x69	; 105
+ 1e0:	38 e1       	ldi	r19, 0x18	; 24
+ 1e2:	f1 50       	subi	r31, 0x01	; 1
+ 1e4:	20 40       	sbci	r18, 0x00	; 0
+ 1e6:	30 40       	sbci	r19, 0x00	; 0
+ 1e8:	e1 f7       	brne	.-8      	; 0x1e2 <main+0xa6>
+ 1ea:	00 c0       	rjmp	.+0      	; 0x1ec <main+0xb0>
+ 1ec:	00 00       	nop
+ 1ee:	01 e0       	ldi	r16, 0x01	; 1
+ 1f0:	08 c1       	rjmp	.+528    	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+ 1f2:	ff ef       	ldi	r31, 0xFF	; 255
+ 1f4:	24 e3       	ldi	r18, 0x34	; 52
+ 1f6:	3c e0       	ldi	r19, 0x0C	; 12
+ 1f8:	f1 50       	subi	r31, 0x01	; 1
+ 1fa:	20 40       	sbci	r18, 0x00	; 0
+ 1fc:	30 40       	sbci	r19, 0x00	; 0
+ 1fe:	e1 f7       	brne	.-8      	; 0x1f8 <main+0xbc>
+ 200:	00 c0       	rjmp	.+0      	; 0x202 <__EEPROM_REGION_LENGTH__+0x2>
+ 202:	00 00       	nop
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:97
+ 204:	f7 01       	movw	r30, r14
+ 206:	86 83       	std	Z+6, r24	; 0x06
+_delay_ms():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/include/util/delay.h:187
+ 208:	4f ef       	ldi	r20, 0xFF	; 255
+ 20a:	84 e3       	ldi	r24, 0x34	; 52
+ 20c:	9c e0       	ldi	r25, 0x0C	; 12
+ 20e:	41 50       	subi	r20, 0x01	; 1
+ 210:	80 40       	sbci	r24, 0x00	; 0
+ 212:	90 40       	sbci	r25, 0x00	; 0
+ 214:	e1 f7       	brne	.-8      	; 0x20e <__EEPROM_REGION_LENGTH__+0xe>
+ 216:	00 c0       	rjmp	.+0      	; 0x218 <__EEPROM_REGION_LENGTH__+0x18>
+ 218:	00 00       	nop
+ 21a:	02 e0       	ldi	r16, 0x02	; 2
+ 21c:	f2 c0       	rjmp	.+484    	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+ 21e:	f6 e5       	ldi	r31, 0x56	; 86
+ 220:	23 e2       	ldi	r18, 0x23	; 35
+ 222:	38 e0       	ldi	r19, 0x08	; 8
+ 224:	f1 50       	subi	r31, 0x01	; 1
+ 226:	20 40       	sbci	r18, 0x00	; 0
+ 228:	30 40       	sbci	r19, 0x00	; 0
+ 22a:	e1 f7       	brne	.-8      	; 0x224 <__EEPROM_REGION_LENGTH__+0x24>
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:97
+ 22c:	f7 01       	movw	r30, r14
+ 22e:	86 83       	std	Z+6, r24	; 0x06
+_delay_ms():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/include/util/delay.h:187
+ 230:	e6 e5       	ldi	r30, 0x56	; 86
+ 232:	f3 e2       	ldi	r31, 0x23	; 35
+ 234:	28 e0       	ldi	r18, 0x08	; 8
+ 236:	e1 50       	subi	r30, 0x01	; 1
+ 238:	f0 40       	sbci	r31, 0x00	; 0
+ 23a:	20 40       	sbci	r18, 0x00	; 0
+ 23c:	e1 f7       	brne	.-8      	; 0x236 <__EEPROM_REGION_LENGTH__+0x36>
+ 23e:	03 e0       	ldi	r16, 0x03	; 3
+ 240:	e0 c0       	rjmp	.+448    	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+ 242:	ff e7       	ldi	r31, 0x7F	; 127
+ 244:	2a e1       	ldi	r18, 0x1A	; 26
+ 246:	36 e0       	ldi	r19, 0x06	; 6
+ 248:	f1 50       	subi	r31, 0x01	; 1
+ 24a:	20 40       	sbci	r18, 0x00	; 0
+ 24c:	30 40       	sbci	r19, 0x00	; 0
+ 24e:	e1 f7       	brne	.-8      	; 0x248 <__EEPROM_REGION_LENGTH__+0x48>
+ 250:	00 c0       	rjmp	.+0      	; 0x252 <__EEPROM_REGION_LENGTH__+0x52>
+ 252:	00 00       	nop
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:97
+ 254:	f7 01       	movw	r30, r14
+ 256:	86 83       	std	Z+6, r24	; 0x06
+_delay_ms():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/include/util/delay.h:187
+ 258:	3f e7       	ldi	r19, 0x7F	; 127
+ 25a:	4a e1       	ldi	r20, 0x1A	; 26
+ 25c:	86 e0       	ldi	r24, 0x06	; 6
+ 25e:	31 50       	subi	r19, 0x01	; 1
+ 260:	40 40       	sbci	r20, 0x00	; 0
+ 262:	80 40       	sbci	r24, 0x00	; 0
+ 264:	e1 f7       	brne	.-8      	; 0x25e <__EEPROM_REGION_LENGTH__+0x5e>
+ 266:	00 c0       	rjmp	.+0      	; 0x268 <__EEPROM_REGION_LENGTH__+0x68>
+ 268:	00 00       	nop
+ 26a:	04 e0       	ldi	r16, 0x04	; 4
+ 26c:	ca c0       	rjmp	.+404    	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+ 26e:	ff ef       	ldi	r31, 0xFF	; 255
+ 270:	21 ee       	ldi	r18, 0xE1	; 225
+ 272:	34 e0       	ldi	r19, 0x04	; 4
+ 274:	f1 50       	subi	r31, 0x01	; 1
+ 276:	20 40       	sbci	r18, 0x00	; 0
+ 278:	30 40       	sbci	r19, 0x00	; 0
+ 27a:	e1 f7       	brne	.-8      	; 0x274 <__EEPROM_REGION_LENGTH__+0x74>
+ 27c:	00 c0       	rjmp	.+0      	; 0x27e <__EEPROM_REGION_LENGTH__+0x7e>
+ 27e:	00 00       	nop
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:97
+ 280:	f7 01       	movw	r30, r14
+ 282:	86 83       	std	Z+6, r24	; 0x06
+_delay_ms():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/include/util/delay.h:187
+ 284:	9f ef       	ldi	r25, 0xFF	; 255
+ 286:	e1 ee       	ldi	r30, 0xE1	; 225
+ 288:	f4 e0       	ldi	r31, 0x04	; 4
+ 28a:	91 50       	subi	r25, 0x01	; 1
+ 28c:	e0 40       	sbci	r30, 0x00	; 0
+ 28e:	f0 40       	sbci	r31, 0x00	; 0
+ 290:	e1 f7       	brne	.-8      	; 0x28a <__EEPROM_REGION_LENGTH__+0x8a>
+ 292:	00 c0       	rjmp	.+0      	; 0x294 <__EEPROM_REGION_LENGTH__+0x94>
+ 294:	00 00       	nop
+ 296:	05 e0       	ldi	r16, 0x05	; 5
+ 298:	b4 c0       	rjmp	.+360    	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+ 29a:	f9 ea       	ldi	r31, 0xA9	; 169
+ 29c:	21 e1       	ldi	r18, 0x11	; 17
+ 29e:	34 e0       	ldi	r19, 0x04	; 4
+ 2a0:	f1 50       	subi	r31, 0x01	; 1
+ 2a2:	20 40       	sbci	r18, 0x00	; 0
+ 2a4:	30 40       	sbci	r19, 0x00	; 0
+ 2a6:	e1 f7       	brne	.-8      	; 0x2a0 <__EEPROM_REGION_LENGTH__+0xa0>
+ 2a8:	00 00       	nop
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:97
+ 2aa:	f7 01       	movw	r30, r14
+ 2ac:	86 83       	std	Z+6, r24	; 0x06
+_delay_ms():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/include/util/delay.h:187
+ 2ae:	29 ea       	ldi	r18, 0xA9	; 169
+ 2b0:	31 e1       	ldi	r19, 0x11	; 17
+ 2b2:	44 e0       	ldi	r20, 0x04	; 4
+ 2b4:	21 50       	subi	r18, 0x01	; 1
+ 2b6:	30 40       	sbci	r19, 0x00	; 0
+ 2b8:	40 40       	sbci	r20, 0x00	; 0
+ 2ba:	e1 f7       	brne	.-8      	; 0x2b4 <__EEPROM_REGION_LENGTH__+0xb4>
+ 2bc:	00 00       	nop
+ 2be:	06 e0       	ldi	r16, 0x06	; 6
+ 2c0:	a0 c0       	rjmp	.+320    	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+ 2c2:	fc ed       	ldi	r31, 0xDC	; 220
+ 2c4:	2c e7       	ldi	r18, 0x7C	; 124
+ 2c6:	33 e0       	ldi	r19, 0x03	; 3
+ 2c8:	f1 50       	subi	r31, 0x01	; 1
+ 2ca:	20 40       	sbci	r18, 0x00	; 0
+ 2cc:	30 40       	sbci	r19, 0x00	; 0
+ 2ce:	e1 f7       	brne	.-8      	; 0x2c8 <__EEPROM_REGION_LENGTH__+0xc8>
+ 2d0:	00 c0       	rjmp	.+0      	; 0x2d2 <__EEPROM_REGION_LENGTH__+0xd2>
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:97
+ 2d2:	f7 01       	movw	r30, r14
+ 2d4:	86 83       	std	Z+6, r24	; 0x06
+_delay_ms():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/include/util/delay.h:187
+ 2d6:	8c ed       	ldi	r24, 0xDC	; 220
+ 2d8:	9c e7       	ldi	r25, 0x7C	; 124
+ 2da:	e3 e0       	ldi	r30, 0x03	; 3
+ 2dc:	81 50       	subi	r24, 0x01	; 1
+ 2de:	90 40       	sbci	r25, 0x00	; 0
+ 2e0:	e0 40       	sbci	r30, 0x00	; 0
+ 2e2:	e1 f7       	brne	.-8      	; 0x2dc <__EEPROM_REGION_LENGTH__+0xdc>
+ 2e4:	00 c0       	rjmp	.+0      	; 0x2e6 <__EEPROM_REGION_LENGTH__+0xe6>
+ 2e6:	07 e0       	ldi	r16, 0x07	; 7
+ 2e8:	8c c0       	rjmp	.+280    	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+ 2ea:	ff e3       	ldi	r31, 0x3F	; 63
+ 2ec:	2d e0       	ldi	r18, 0x0D	; 13
+ 2ee:	33 e0       	ldi	r19, 0x03	; 3
+ 2f0:	f1 50       	subi	r31, 0x01	; 1
+ 2f2:	20 40       	sbci	r18, 0x00	; 0
+ 2f4:	30 40       	sbci	r19, 0x00	; 0
+ 2f6:	e1 f7       	brne	.-8      	; 0x2f0 <__EEPROM_REGION_LENGTH__+0xf0>
+ 2f8:	00 c0       	rjmp	.+0      	; 0x2fa <__EEPROM_REGION_LENGTH__+0xfa>
+ 2fa:	00 00       	nop
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:97
+ 2fc:	f7 01       	movw	r30, r14
+ 2fe:	86 83       	std	Z+6, r24	; 0x06
+_delay_ms():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/include/util/delay.h:187
+ 300:	ff e3       	ldi	r31, 0x3F	; 63
+ 302:	2d e0       	ldi	r18, 0x0D	; 13
+ 304:	33 e0       	ldi	r19, 0x03	; 3
+ 306:	f1 50       	subi	r31, 0x01	; 1
+ 308:	20 40       	sbci	r18, 0x00	; 0
+ 30a:	30 40       	sbci	r19, 0x00	; 0
+ 30c:	e1 f7       	brne	.-8      	; 0x306 <__EEPROM_REGION_LENGTH__+0x106>
+ 30e:	00 c0       	rjmp	.+0      	; 0x310 <__EEPROM_REGION_LENGTH__+0x110>
+ 310:	00 00       	nop
+ 312:	08 e0       	ldi	r16, 0x08	; 8
+ 314:	76 c0       	rjmp	.+236    	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+ 316:	f2 e7       	ldi	r31, 0x72	; 114
+ 318:	26 eb       	ldi	r18, 0xB6	; 182
+ 31a:	32 e0       	ldi	r19, 0x02	; 2
+ 31c:	f1 50       	subi	r31, 0x01	; 1
+ 31e:	20 40       	sbci	r18, 0x00	; 0
+ 320:	30 40       	sbci	r19, 0x00	; 0
+ 322:	e1 f7       	brne	.-8      	; 0x31c <__EEPROM_REGION_LENGTH__+0x11c>
+ 324:	00 c0       	rjmp	.+0      	; 0x326 <__EEPROM_REGION_LENGTH__+0x126>
+ 326:	00 c0       	rjmp	.+0      	; 0x328 <__EEPROM_REGION_LENGTH__+0x128>
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:97
+ 328:	f7 01       	movw	r30, r14
+ 32a:	86 83       	std	Z+6, r24	; 0x06
+_delay_ms():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/include/util/delay.h:187
+ 32c:	42 e7       	ldi	r20, 0x72	; 114
+ 32e:	86 eb       	ldi	r24, 0xB6	; 182
+ 330:	92 e0       	ldi	r25, 0x02	; 2
+ 332:	41 50       	subi	r20, 0x01	; 1
+ 334:	80 40       	sbci	r24, 0x00	; 0
+ 336:	90 40       	sbci	r25, 0x00	; 0
+ 338:	e1 f7       	brne	.-8      	; 0x332 <__EEPROM_REGION_LENGTH__+0x132>
+ 33a:	00 c0       	rjmp	.+0      	; 0x33c <__EEPROM_REGION_LENGTH__+0x13c>
+ 33c:	00 c0       	rjmp	.+0      	; 0x33e <__EEPROM_REGION_LENGTH__+0x13e>
+ 33e:	09 e0       	ldi	r16, 0x09	; 9
+ 340:	60 c0       	rjmp	.+192    	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+ 342:	ff ef       	ldi	r31, 0xFF	; 255
+ 344:	20 e7       	ldi	r18, 0x70	; 112
+ 346:	32 e0       	ldi	r19, 0x02	; 2
+ 348:	f1 50       	subi	r31, 0x01	; 1
+ 34a:	20 40       	sbci	r18, 0x00	; 0
+ 34c:	30 40       	sbci	r19, 0x00	; 0
+ 34e:	e1 f7       	brne	.-8      	; 0x348 <__EEPROM_REGION_LENGTH__+0x148>
+ 350:	00 c0       	rjmp	.+0      	; 0x352 <__EEPROM_REGION_LENGTH__+0x152>
+ 352:	00 00       	nop
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:97
+ 354:	f7 01       	movw	r30, r14
+ 356:	86 83       	std	Z+6, r24	; 0x06
+_delay_ms():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/include/util/delay.h:187
+ 358:	ef ef       	ldi	r30, 0xFF	; 255
+ 35a:	f0 e7       	ldi	r31, 0x70	; 112
+ 35c:	22 e0       	ldi	r18, 0x02	; 2
+ 35e:	e1 50       	subi	r30, 0x01	; 1
+ 360:	f0 40       	sbci	r31, 0x00	; 0
+ 362:	20 40       	sbci	r18, 0x00	; 0
+ 364:	e1 f7       	brne	.-8      	; 0x35e <__EEPROM_REGION_LENGTH__+0x15e>
+ 366:	00 c0       	rjmp	.+0      	; 0x368 <__EEPROM_REGION_LENGTH__+0x168>
+ 368:	00 00       	nop
+ 36a:	0a e0       	ldi	r16, 0x0A	; 10
+ 36c:	4a c0       	rjmp	.+148    	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+ 36e:	f6 e5       	ldi	r31, 0x56	; 86
+ 370:	23 e2       	ldi	r18, 0x23	; 35
+ 372:	38 e0       	ldi	r19, 0x08	; 8
+ 374:	f1 50       	subi	r31, 0x01	; 1
+ 376:	20 40       	sbci	r18, 0x00	; 0
+ 378:	30 40       	sbci	r19, 0x00	; 0
+ 37a:	e1 f7       	brne	.-8      	; 0x374 <__EEPROM_REGION_LENGTH__+0x174>
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:97
+ 37c:	f7 01       	movw	r30, r14
+ 37e:	86 83       	std	Z+6, r24	; 0x06
+delay_halfperiod_by_freq():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:28
+  return false;
+}
+enum { FREQ_MIN = 1, FREQ_MAX = 10 };
+
+static inline void delay_halfperiod_by_freq(uint8_t f) {
+  switch (f) {
+ 380:	ef ef       	ldi	r30, 0xFF	; 255
+ 382:	e0 0f       	add	r30, r16
+ 384:	ea 30       	cpi	r30, 0x0A	; 10
+ 386:	78 f4       	brcc	.+30     	; 0x3a6 <__EEPROM_REGION_LENGTH__+0x1a6>
+ 388:	f0 e0       	ldi	r31, 0x00	; 0
+ 38a:	e7 53       	subi	r30, 0x37	; 55
+ 38c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 38e:	0c 94 2e 02 	jmp	0x45c	; 0x45c <__tablejump2__>
+ 392:	ee 00       	.word	0x00ee	; ????
+ 394:	04 01       	movw	r0, r8
+ 396:	18 01       	movw	r2, r16
+ 398:	2c 01       	movw	r4, r24
+ 39a:	42 01       	movw	r8, r4
+ 39c:	57 01       	movw	r10, r14
+ 39e:	6b 01       	movw	r12, r22
+ 3a0:	80 01       	movw	r16, r0
+ 3a2:	96 01       	movw	r18, r12
+ 3a4:	ac 01       	movw	r20, r24
+_delay_ms():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/include/util/delay.h:187
+ 3a6:	36 e5       	ldi	r19, 0x56	; 86
+ 3a8:	43 e2       	ldi	r20, 0x23	; 35
+ 3aa:	88 e0       	ldi	r24, 0x08	; 8
+ 3ac:	31 50       	subi	r19, 0x01	; 1
+ 3ae:	40 40       	sbci	r20, 0x00	; 0
+ 3b0:	80 40       	sbci	r24, 0x00	; 0
+ 3b2:	e1 f7       	brne	.-8      	; 0x3ac <__EEPROM_REGION_LENGTH__+0x1ac>
+ 3b4:	26 c0       	rjmp	.+76     	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:100 (discriminator 1)
+      PORTD.OUTSET = (1 << led_idx);
+      delay_halfperiod_by_freq(freq);
+      PORTD.OUTCLR = (1 << led_idx);
+      delay_halfperiod_by_freq(freq);
+
+    } else if (BTN1 && !BTN2) {
+ 3b6:	81 11       	cpse	r24, r1
+ 3b8:	08 c0       	rjmp	.+16     	; 0x3ca <__EEPROM_REGION_LENGTH__+0x1ca>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:101
+      freq = clamp_freq((int16_t)freq + 1); // Increase frequency
+ 3ba:	80 2f       	mov	r24, r16
+ 3bc:	90 e0       	ldi	r25, 0x00	; 0
+clamp_freq():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:66
+    break; // fallback (3 Hz)
+  }
+}
+
+static inline uint8_t clamp_freq(int16_t f) {
+  if (f < FREQ_MIN)
+ 3be:	01 96       	adiw	r24, 0x01	; 1
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:70
+    return FREQ_MIN;
+  if (f > FREQ_MAX)
+    return FREQ_MAX;
+  return (uint8_t)f;
+ 3c0:	0f 5f       	subi	r16, 0xFF	; 255
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:68
+}
+
+static inline uint8_t clamp_freq(int16_t f) {
+  if (f < FREQ_MIN)
+    return FREQ_MIN;
+  if (f > FREQ_MAX)
+ 3c2:	0b 97       	sbiw	r24, 0x0b	; 11
+ 3c4:	f4 f0       	brlt	.+60     	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:69
+    return FREQ_MAX;
+ 3c6:	0a e0       	ldi	r16, 0x0A	; 10
+ 3c8:	1c c0       	rjmp	.+56     	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:107
+
+    } else if (BTN2 && !BTN1) {
+      freq = clamp_freq((int16_t)freq - 1); // Decrease frequency
+
+    } else if (BTN1 && BTN2) {
+      if (direction) {
+ 3ca:	aa 20       	and	r10, r10
+ 3cc:	b1 f1       	breq	.+108    	; 0x43a <__LOCK_REGION_LENGTH__+0x3a>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:108
+        PORTD.OUTCLR = (1 << led_idx);
+ 3ce:	c6 01       	movw	r24, r12
+ 3d0:	0b 2c       	mov	r0, r11
+ 3d2:	02 c0       	rjmp	.+4      	; 0x3d8 <__EEPROM_REGION_LENGTH__+0x1d8>
+ 3d4:	88 0f       	add	r24, r24
+ 3d6:	99 1f       	adc	r25, r25
+ 3d8:	0a 94       	dec	r0
+ 3da:	e2 f7       	brpl	.-8      	; 0x3d4 <__EEPROM_REGION_LENGTH__+0x1d4>
+ 3dc:	f7 01       	movw	r30, r14
+ 3de:	86 83       	std	Z+6, r24	; 0x06
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:109
+        if (led_idx < 7)
+ 3e0:	f6 e0       	ldi	r31, 0x06	; 6
+ 3e2:	fb 15       	cp	r31, r11
+ 3e4:	08 f0       	brcs	.+2      	; 0x3e8 <__EEPROM_REGION_LENGTH__+0x1e8>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:110
+          led_idx++;
+ 3e6:	b3 94       	inc	r11
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:111
+        if (led_idx == 7)
+ 3e8:	a9 2c       	mov	r10, r9
+ 3ea:	27 e0       	ldi	r18, 0x07	; 7
+ 3ec:	b2 16       	cp	r11, r18
+ 3ee:	19 f1       	breq	.+70     	; 0x436 <__LOCK_REGION_LENGTH__+0x36>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:120
+        if (led_idx > 0)
+          led_idx--;
+        if (led_idx == 0)
+          direction = true;
+      }
+      PORTD.OUTSET = (1 << led_idx);
+ 3f0:	c6 01       	movw	r24, r12
+ 3f2:	0b 2c       	mov	r0, r11
+ 3f4:	02 c0       	rjmp	.+4      	; 0x3fa <__EEPROM_REGION_LENGTH__+0x1fa>
+ 3f6:	88 0f       	add	r24, r24
+ 3f8:	99 1f       	adc	r25, r25
+ 3fa:	0a 94       	dec	r0
+ 3fc:	e2 f7       	brpl	.-8      	; 0x3f6 <__EEPROM_REGION_LENGTH__+0x1f6>
+ 3fe:	f7 01       	movw	r30, r14
+ 400:	85 83       	std	Z+5, r24	; 0x05
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:90
+  uint8_t freq = 3;      // 3 Hz
+  uint8_t direction = 1; // 1: up, 0: down
+
+  while (1) {
+
+    bool BTN1 = debounceInput(PORTB.IN, 2); // Port B, Pin 2
+ 402:	88 85       	ldd	r24, Y+8	; 0x08
+ 404:	62 e0       	ldi	r22, 0x02	; 2
+ 406:	0e 94 8c 00 	call	0x118	; 0x118 <debounceInput>
+ 40a:	18 2f       	mov	r17, r24
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:91
+    bool BTN2 = debounceInput(PORTB.IN, 5); // Port B, Pin 5
+ 40c:	88 85       	ldd	r24, Y+8	; 0x08
+ 40e:	65 e0       	ldi	r22, 0x05	; 5
+ 410:	0e 94 8c 00 	call	0x118	; 0x118 <debounceInput>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:93
+
+    if (!BTN1 && !BTN2) {
+ 414:	11 11       	cpse	r17, r1
+ 416:	cf cf       	rjmp	.-98     	; 0x3b6 <__EEPROM_REGION_LENGTH__+0x1b6>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:93 (discriminator 1)
+ 418:	88 23       	and	r24, r24
+ 41a:	09 f4       	brne	.+2      	; 0x41e <__LOCK_REGION_LENGTH__+0x1e>
+ 41c:	b7 ce       	rjmp	.-658    	; 0x18c <main+0x50>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:104
+
+    } else if (BTN1 && !BTN2) {
+      freq = clamp_freq((int16_t)freq + 1); // Increase frequency
+
+    } else if (BTN2 && !BTN1) {
+      freq = clamp_freq((int16_t)freq - 1); // Decrease frequency
+ 41e:	e0 2f       	mov	r30, r16
+ 420:	e1 50       	subi	r30, 0x01	; 1
+ 422:	ff 0b       	sbc	r31, r31
+clamp_freq():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:66
+    break; // fallback (3 Hz)
+  }
+}
+
+static inline uint8_t clamp_freq(int16_t f) {
+  if (f < FREQ_MIN)
+ 424:	1e 16       	cp	r1, r30
+ 426:	1f 06       	cpc	r1, r31
+ 428:	0c f0       	brlt	.+2      	; 0x42c <__LOCK_REGION_LENGTH__+0x2c>
+ 42a:	ae ce       	rjmp	.-676    	; 0x188 <main+0x4c>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:70
+    return FREQ_MIN;
+  if (f > FREQ_MAX)
+    return FREQ_MAX;
+  return (uint8_t)f;
+ 42c:	01 50       	subi	r16, 0x01	; 1
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:68
+}
+
+static inline uint8_t clamp_freq(int16_t f) {
+  if (f < FREQ_MIN)
+    return FREQ_MIN;
+  if (f > FREQ_MAX)
+ 42e:	3b 97       	sbiw	r30, 0x0b	; 11
+ 430:	44 f3       	brlt	.-48     	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:69
+    return FREQ_MAX;
+ 432:	0a e0       	ldi	r16, 0x0A	; 10
+ 434:	e6 cf       	rjmp	.-52     	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+main():
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:111
+    } else if (BTN1 && BTN2) {
+      if (direction) {
+        PORTD.OUTCLR = (1 << led_idx);
+        if (led_idx < 7)
+          led_idx++;
+        if (led_idx == 7)
+ 436:	a8 2c       	mov	r10, r8
+ 438:	db cf       	rjmp	.-74     	; 0x3f0 <__EEPROM_REGION_LENGTH__+0x1f0>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:114
+          direction = false;
+      } else {
+        PORTD.OUTCLR = (1 << led_idx);
+ 43a:	c6 01       	movw	r24, r12
+ 43c:	0b 2c       	mov	r0, r11
+ 43e:	02 c0       	rjmp	.+4      	; 0x444 <__LOCK_REGION_LENGTH__+0x44>
+ 440:	88 0f       	add	r24, r24
+ 442:	99 1f       	adc	r25, r25
+ 444:	0a 94       	dec	r0
+ 446:	e2 f7       	brpl	.-8      	; 0x440 <__LOCK_REGION_LENGTH__+0x40>
+ 448:	f7 01       	movw	r30, r14
+ 44a:	86 83       	std	Z+6, r24	; 0x06
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:118
+        if (led_idx > 0)
+          led_idx--;
+        if (led_idx == 0)
+          direction = true;
+ 44c:	a9 2c       	mov	r10, r9
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:115
+          led_idx++;
+        if (led_idx == 7)
+          direction = false;
+      } else {
+        PORTD.OUTCLR = (1 << led_idx);
+        if (led_idx > 0)
+ 44e:	bb 20       	and	r11, r11
+ 450:	79 f2       	breq	.-98     	; 0x3f0 <__EEPROM_REGION_LENGTH__+0x1f0>
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:116
+          led_idx--;
+ 452:	ba 94       	dec	r11
+/home/artj/Documents/ECE3411uCLab/labs/lab3/main.c:117
+        if (led_idx == 0)
+ 454:	bb 20       	and	r11, r11
+ 456:	61 f2       	breq	.-104    	; 0x3f0 <__EEPROM_REGION_LENGTH__+0x1f0>
+ 458:	a8 2c       	mov	r10, r8
+ 45a:	ca cf       	rjmp	.-108    	; 0x3f0 <__EEPROM_REGION_LENGTH__+0x1f0>
+
+0000045c <__tablejump2__>:
+__tablejump2__():
+ 45c:	ee 0f       	add	r30, r30
+ 45e:	ff 1f       	adc	r31, r31
+ 460:	00 24       	eor	r0, r0
+ 462:	00 1c       	adc	r0, r0
+ 464:	0b be       	out	0x3b, r0	; 59
+ 466:	07 90       	elpm	r0, Z+
+ 468:	f6 91       	elpm	r31, Z
+ 46a:	e0 2d       	mov	r30, r0
+ 46c:	09 94       	ijmp
+
+0000046e <ccp_write_io>:
+ccp_write_io():
+/home/jenkins/agent/workspace/XC8/AVR/avr8-devices-pack/src/avr-libc/avr/lib/avrxmega4/avr128db48/../../../../libc/misc/ccp_write.S:18
+ 46e:	dc 01       	movw	r26, r24
+/home/jenkins/agent/workspace/XC8/AVR/avr8-devices-pack/src/avr-libc/avr/lib/avrxmega4/avr128db48/../../../../libc/misc/ccp_write.S:19
+ 470:	28 ed       	ldi	r18, 0xD8	; 216
+/home/jenkins/agent/workspace/XC8/AVR/avr8-devices-pack/src/avr-libc/avr/lib/avrxmega4/avr128db48/../../../../libc/misc/ccp_write.S:20
+ 472:	20 93 34 00 	sts	0x0034, r18	; 0x800034 <__TEXT_REGION_LENGTH__+0x7e0034>
+/home/jenkins/agent/workspace/XC8/AVR/avr8-devices-pack/src/avr-libc/avr/lib/avrxmega4/avr128db48/../../../../libc/misc/ccp_write.S:21
+ 476:	6c 93       	st	X, r22
+/home/jenkins/agent/workspace/XC8/AVR/avr8-devices-pack/src/avr-libc/avr/lib/avrxmega4/avr128db48/../../../../libc/misc/ccp_write.S:22
+ 478:	08 95       	ret
+
+0000047a <_exit>:
+exit():
+ 47a:	f8 94       	cli
+
+0000047c <__stop_program>:
+__stop_program():
+ 47c:	ff cf       	rjmp	.-2      	; 0x47c <__stop_program>

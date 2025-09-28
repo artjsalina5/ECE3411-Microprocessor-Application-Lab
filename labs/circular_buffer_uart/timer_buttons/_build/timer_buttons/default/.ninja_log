@@ -1,0 +1,6 @@
+# ninja log v7
+2	52	1758571179705722567	CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/main.c.o	961dc861be473870
+1	53	1758571179705056782	CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/tca0.c.o	c74dc9e97828f3f6
+1	57	1758571179704264710	CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/circularbuff.c.o	20cc922715796a2
+1	71	1758571179705285833	CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/uart.c.o	a15a0fcd7dc58fd2
+71	94	1758571179774263353	/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/out/timer_buttons/default.elf	bed22ed2dead5dc1

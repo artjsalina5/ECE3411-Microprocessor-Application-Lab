@@ -1,0 +1,4 @@
+/home/artj/MPLABProjects/labpractice4/_build/labpractice4/default/CMakeFiles/labpractice4_default_default_XC8_compile.dir
+/home/artj/MPLABProjects/labpractice4/_build/labpractice4/default/CMakeFiles/labpractice4_default_image_1UM4c_SE.dir
+/home/artj/MPLABProjects/labpractice4/_build/labpractice4/default/CMakeFiles/edit_cache.dir
+/home/artj/MPLABProjects/labpractice4/_build/labpractice4/default/CMakeFiles/rebuild_cache.dir

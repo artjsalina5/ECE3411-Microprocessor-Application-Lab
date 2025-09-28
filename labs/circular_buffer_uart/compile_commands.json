@@ -1,0 +1,7 @@
+[
+{
+  "command": "/home/artj/avrgcc/bin/avr-gcc -gdwarf-2 -mmcu=avr128db48 -B/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/gcc/dev/avr128db48 -o -Wl,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1",
+  "file": "/home/artj/Documents/ECE3411uCLab/labs/uart_interrupt/main.c",
+  "output": "/home/artj/Documents/ECE3411uCLab/labs/uart_interrupt/out/",
+}
+]

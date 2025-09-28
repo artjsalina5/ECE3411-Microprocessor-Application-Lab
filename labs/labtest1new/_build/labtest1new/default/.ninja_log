@@ -1,0 +1,4 @@
+# ninja log v7
+1	121	1758073792220798344	CMakeFiles/labtest1new_default_default_XC8_compile.dir/home/artj/MPLABProjects/labtest1new/main.c.o	2a25eafdb882b8e5
+121	135	1758073792340817510	/home/artj/MPLABProjects/labtest1new/out/labtest1new/default.elf	eb1dad46a8b6797e
+1	104	1757534698959329184	CMakeFiles/labtest1new_default_default_XC8_compile.dir/home/artj/MPLABProjects/labtest1new/parta.c.o	c68d555831bbdac8

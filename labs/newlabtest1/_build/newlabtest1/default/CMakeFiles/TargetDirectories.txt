@@ -1,0 +1,4 @@
+/home/artj/MPLABProjects/newlabtest1/_build/newlabtest1/default/CMakeFiles/newlabtest1_default_default_XC8_compile.dir
+/home/artj/MPLABProjects/newlabtest1/_build/newlabtest1/default/CMakeFiles/newlabtest1_default_image_CNeS1WAA.dir
+/home/artj/MPLABProjects/newlabtest1/_build/newlabtest1/default/CMakeFiles/edit_cache.dir
+/home/artj/MPLABProjects/newlabtest1/_build/newlabtest1/default/CMakeFiles/rebuild_cache.dir

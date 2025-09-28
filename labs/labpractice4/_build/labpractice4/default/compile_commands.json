@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/artj/MPLABProjects/labpractice4/_build/labpractice4/default",
+  "command": "/opt/microchip/xc8/v2.50/bin/xc8-cc -DDEBUG -DXPRJ_default=default -D__AVR128DB48__ -D__DEBUG=1 -c -mcpu=AVR128DB48 -gdwarf-2 -x c -mdfp=/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/xc8 -Wl,--gc-sections -Os -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -mext=cci -Wall -gdwarf-3 -mno-const-data-in-progmem -o CMakeFiles/labpractice4_default_default_XC8_compile.dir/home/artj/MPLABProjects/labpractice4/main.c.o -c /home/artj/MPLABProjects/labpractice4/main.c",
+  "file": "/home/artj/MPLABProjects/labpractice4/main.c",
+  "output": "/home/artj/MPLABProjects/labpractice4/_build/labpractice4/default/CMakeFiles/labpractice4_default_default_XC8_compile.dir/home/artj/MPLABProjects/labpractice4/main.c.o"
+}
+]

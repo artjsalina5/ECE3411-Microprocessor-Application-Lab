@@ -1,0 +1,50 @@
+[
+{
+  "directory": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default",
+  "command": "/home/artj/.mplab/app-finder/apps/avr-gcc/v7.3.0/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc -DDEBUG -D__AVR128DB48__ -Ddefault=default -I/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/include -x c -g -gdwarf-2 -mmcu=avr128db48 -B/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/gcc/dev/avr128db48 -x c -c -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/circularbuff.c.o -c /home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/circularbuff.c",
+  "file": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/circularbuff.c",
+  "output": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default/CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/circularbuff.c.o"
+},
+{
+  "directory": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default",
+  "command": "/home/artj/.mplab/app-finder/apps/avr-gcc/v7.3.0/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc -DDEBUG -D__AVR128DB48__ -Ddefault=default -I/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/include -x c -g -gdwarf-2 -mmcu=avr128db48 -B/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/gcc/dev/avr128db48 -x c -c -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/cpu.c.o -c /home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/cpu.c",
+  "file": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/cpu.c",
+  "output": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default/CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/cpu.c.o"
+},
+{
+  "directory": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default",
+  "command": "/home/artj/.mplab/app-finder/apps/avr-gcc/v7.3.0/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc -DDEBUG -D__AVR128DB48__ -Ddefault=default -I/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/include -x c -g -gdwarf-2 -mmcu=avr128db48 -B/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/gcc/dev/avr128db48 -x c -c -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/rtc.c.o -c /home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/rtc.c",
+  "file": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/rtc.c",
+  "output": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default/CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/rtc.c.o"
+},
+{
+  "directory": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default",
+  "command": "/home/artj/.mplab/app-finder/apps/avr-gcc/v7.3.0/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc -DDEBUG -D__AVR128DB48__ -Ddefault=default -I/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/include -x c -g -gdwarf-2 -mmcu=avr128db48 -B/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/gcc/dev/avr128db48 -x c -c -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/tca0.c.o -c /home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/tca0.c",
+  "file": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/tca0.c",
+  "output": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default/CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/tca0.c.o"
+},
+{
+  "directory": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default",
+  "command": "/home/artj/.mplab/app-finder/apps/avr-gcc/v7.3.0/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc -DDEBUG -D__AVR128DB48__ -Ddefault=default -I/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/include -x c -g -gdwarf-2 -mmcu=avr128db48 -B/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/gcc/dev/avr128db48 -x c -c -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/uart.c.o -c /home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/uart.c",
+  "file": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/uart.c",
+  "output": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default/CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/include/uart.c.o"
+},
+{
+  "directory": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default",
+  "command": "/home/artj/.mplab/app-finder/apps/avr-gcc/v7.3.0/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc -DDEBUG -D__AVR128DB48__ -Ddefault=default -I/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/include -x c -g -gdwarf-2 -mmcu=avr128db48 -B/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/gcc/dev/avr128db48 -x c -c -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/main.c.o -c /home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/main.c",
+  "file": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/main.c",
+  "output": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default/CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/main.c.o"
+},
+{
+  "directory": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default",
+  "command": "/home/artj/.mplab/app-finder/apps/avr-gcc/v7.3.0/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc -DDEBUG -D__AVR128DB48__ -Ddefault=default -I/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/include -x c -g -gdwarf-2 -mmcu=avr128db48 -B/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/gcc/dev/avr128db48 -x c -c -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/rtc_usage_examples.c.o -c /home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/rtc_usage_examples.c",
+  "file": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/rtc_usage_examples.c",
+  "output": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default/CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/rtc_usage_examples.c.o"
+},
+{
+  "directory": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default",
+  "command": "/home/artj/.mplab/app-finder/apps/avr-gcc/v7.3.0/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc -DDEBUG -D__AVR128DB48__ -Ddefault=default -I/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/include -x c -g -gdwarf-2 -mmcu=avr128db48 -B/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/gcc/dev/avr128db48 -x c -c -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/tca0_usage_examples.c.o -c /home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/tca0_usage_examples.c",
+  "file": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/tca0_usage_examples.c",
+  "output": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/_build/timer_buttons/default/CMakeFiles/timer_buttons_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/timer_buttons/tca0_usage_examples.c.o"
+}
+]

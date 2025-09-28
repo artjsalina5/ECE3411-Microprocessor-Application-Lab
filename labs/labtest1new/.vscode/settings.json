@@ -1,0 +1,12 @@
+{
+    "mplab.clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/_build/labtest1new/default"
+    ],
+    "mplab.clangd.path": "/opt/microchip/xc8/v3.00/bin/xc8-clangd",
+    "memory-inspector.debugTypes": [
+        "arm-debugger",
+        "embedded-debug",
+        "gdb",
+        "mplab-core-da"
+    ]
+}

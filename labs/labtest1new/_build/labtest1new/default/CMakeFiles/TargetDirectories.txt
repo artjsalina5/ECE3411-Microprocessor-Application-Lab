@@ -1,0 +1,4 @@
+/home/artj/MPLABProjects/labtest1new/_build/labtest1new/default/CMakeFiles/labtest1new_default_default_XC8_compile.dir
+/home/artj/MPLABProjects/labtest1new/_build/labtest1new/default/CMakeFiles/labtest1new_default_image_ed3VVJZv.dir
+/home/artj/MPLABProjects/labtest1new/_build/labtest1new/default/CMakeFiles/edit_cache.dir
+/home/artj/MPLABProjects/labtest1new/_build/labtest1new/default/CMakeFiles/rebuild_cache.dir
