@@ -6,14 +6,13 @@
  */
 
 #define F_CPU 16000000UL // 16 MHz clock speed
+#include "include/uart.h"
 #include "include/circularbuff.h"
 #include "include/tca.h"
-#include "include/uart.h"
 #include <avr/interrupt.h>
 #include <avr/io.h>
-// #include <avr/ioavr128db48.h>
+#include <avr/ioavr128db48.h>
 #include <stdbool.h>
-#include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,11 +22,11 @@
 #define BAUD_RATE 9600
 
 // Global variables for LED control and frequency
-volatile uint8_t led_frequency = 3;      // Start at 3Hz for LED 2 (3rd LED)
-volatile uint16_t timer_ticks = 0;       // Timer tick counter
-volatile uint16_t led_toggle_ticks = 0;  // Ticks needed for LED toggle
+volatile uint8_t led_frequency = 3;    // Start at 3Hz for LED 2 (3rd LED)
+volatile uint16_t timer_ticks = 0;     // Timer tick counter
+volatile uint16_t led_toggle_ticks = 0; // Ticks needed for LED toggle
 volatile uint16_t uart_report_ticks = 0; // Ticks for 5-second UART reporting
-volatile bool led_state = false;         // Current state of LED 2
+volatile bool led_state = false;       // Current state of LED 2
 
 // Button debouncing variables
 volatile uint8_t btn1_prev = 1;
@@ -52,7 +51,7 @@ void init_button() {
   // BTN1 (increment frequency) - PB5
   PORTB.DIRCLR = PIN5_bm;            // Set PB5 as input
   PORTB.PIN5CTRL = PORT_PULLUPEN_bm; // Enable pull-up
-
+  
   // BTN2 (decrement frequency) - PB2
   PORTB.DIRCLR = PIN2_bm;            // Set PB2 as input
   PORTB.PIN2CTRL = PORT_PULLUPEN_bm; // Enable pull-up
@@ -129,68 +128,69 @@ ISR(USART3_DRE_vect) {
   }
 }
 
+
 //============================================================================
 // Timer callback function - called every 1ms
 //============================================================================
 void timer_callback(void) {
-  timer_ticks++;
-
-  // Handle button debouncing every 1ms
-  handle_buttons();
-
-  // Handle LED blinking - calculate ticks needed for current frequency
-  // For frequency F, we need to toggle every (1000ms / (2*F)) ticks
-  uint16_t toggle_period = 1000 / (2 * led_frequency);
-
-  if (timer_ticks >= led_toggle_ticks + toggle_period) {
-    led_toggle_ticks = timer_ticks;
-    // Toggle LED 2 (3rd LED, index 2)
-    leds_toggle_position(2);
-    led_state = !led_state;
-  }
-
-  // Handle 5-second UART reporting (5000ms = 5000 ticks)
-  if (timer_ticks >= uart_report_ticks + 5000) {
-    uart_report_ticks = timer_ticks;
-    // Send frequency to UART - this is the "second task"
-    printf("Current LED frequency: %d Hz\n", led_frequency);
-  }
+    timer_ticks++;
+    
+    // Handle button debouncing every 1ms
+    handle_buttons();
+    
+    // Handle LED blinking - calculate ticks needed for current frequency
+    // For frequency F, we need to toggle every (1000ms / (2*F)) ticks
+    uint16_t toggle_period = 1000 / (2 * led_frequency);
+    
+    if (timer_ticks >= led_toggle_ticks + toggle_period) {
+        led_toggle_ticks = timer_ticks;
+        // Toggle LED 2 (3rd LED, index 2)
+        leds_toggle_position(2);
+        led_state = !led_state;
+    }
+    
+    // Handle 5-second UART reporting (5000ms = 5000 ticks)
+    if (timer_ticks >= uart_report_ticks + 5000) {
+        uart_report_ticks = timer_ticks;
+        // Send frequency to UART - this is the "second task"
+        printf("Current LED frequency: %d Hz\n", led_frequency);
+    }
 }
 //============================================================================
 // Button handling debounce
 //============================================================================
 void handle_buttons(void) {
-  // Read current button states (active low)
-  uint8_t btn1_current = !(PORTB.IN & PIN5_bm);
-  uint8_t btn2_current = !(PORTB.IN & PIN2_bm);
-
-  // Button 1 (increment frequency) debouncing
-  if (btn1_current && !btn1_prev && btn1_debounce == 0) {
-    // Button 1 pressed - increment frequency
-    if (led_frequency < 255) { // Reasonable upper limit
-      led_frequency++;
-      printf("Frequency increased to: %d Hz\n", led_frequency);
+    // Read current button states (active low)
+    uint8_t btn1_current = !(PORTB.IN & PIN5_bm);
+    uint8_t btn2_current = !(PORTB.IN & PIN2_bm);
+    
+    // Button 1 (increment frequency) debouncing
+    if (btn1_current && !btn1_prev && btn1_debounce == 0) {
+        // Button 1 pressed - increment frequency
+        if (led_frequency < 255) { // Reasonable upper limit
+            led_frequency++;
+            printf("Frequency increased to: %d Hz\n", led_frequency);
+        }
+        btn1_debounce = 50; // Set debounce counter
     }
-    btn1_debounce = 50; // Set debounce counter
-  }
-  if (btn1_debounce > 0) {
-    btn1_debounce--;
-  }
-  btn1_prev = btn1_current;
-
-  // Button 2 (decrement frequency) debouncing
-  if (btn2_current && !btn2_prev && btn2_debounce == 0) {
-    // Button 2 pressed - decrement frequency (minimum 1 Hz)
-    if (led_frequency > 1) {
-      led_frequency--;
-      printf("Frequency decreased to: %d Hz\n", led_frequency);
+    if (btn1_debounce > 0) {
+        btn1_debounce--;
     }
-    btn2_debounce = 50; // Set debounce counter
-  }
-  if (btn2_debounce > 0) {
-    btn2_debounce--;
-  }
-  btn2_prev = btn2_current;
+    btn1_prev = btn1_current;
+    
+    // Button 2 (decrement frequency) debouncing  
+    if (btn2_current && !btn2_prev && btn2_debounce == 0) {
+        // Button 2 pressed - decrement frequency (minimum 1 Hz)
+        if (led_frequency > 1) {
+            led_frequency--;
+            printf("Frequency decreased to: %d Hz\n", led_frequency);
+        }
+        btn2_debounce = 50; // Set debounce counter
+    }
+    if (btn2_debounce > 0) {
+        btn2_debounce--;
+    }
+    btn2_prev = btn2_current;
 }
 // ****************************************************************************
 
@@ -199,28 +199,28 @@ int main(void) {
   init_cpu();
   init_led();
   init_button();
-
+  
   /* Initialize UART stdio on USART3 @ 9600 8N1 */
   /* (uart_init now automatically enables RX interrupt for unified API) */
   uart_init(3, 9600, F_CLK_PER, NULL);
 
   // Initialize Timer for 1ms interrupts
   TCA0_Initialize();
-
+  
   // Set timer period for 1ms interrupt at 16MHz with DIV4 prescaler
   // Timer frequency = 16MHz / 4 = 4MHz
   // For 1ms: 4MHz / 1000 = 4000 ticks
   TCA0.SINGLE.PER = 3999; // 4000 - 1 (0-based count)
-
+  
   // Register timer callback
   TCA0_OverflowCallbackRegister(timer_callback);
-
+  
   // Enable only overflow interrupt
   TCA0.SINGLE.INTCTRL = TCA_SINGLE_OVF_bm;
-
+  
   // Start the timer
   TCA0_Start();
-
+  
   // Turn off all LEDs initially except LED 2 will be controlled by timer
   PORTD.OUTCLR = 0xFF;
 
@@ -232,6 +232,7 @@ int main(void) {
   while (1) {
     // Main loop can be empty or handle other non-time-critical tasks
     // All timing-critical operations are handled in timer interrupt
+    
   }
 
   /* not reached */

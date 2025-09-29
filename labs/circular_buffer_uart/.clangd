@@ -1,7 +1,6 @@
 CompileFlags:
   Add:
-    - -I/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/xc8/avr/include/
-    - -I/home/artj/Documents/ECE3411uCLab/labs/include/
+    - -I/home/artj/x-tools/avr/include
     - -std=c11
     - -Wall
     - -Wextra
@@ -14,4 +13,3 @@ CompileFlags:
     # Optional: quiet GCC-specific attributes/pragmas that clang may not know.
     - -Wno-unknown-attributes
     - -Wno-unknown-pragmas
-

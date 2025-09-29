@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/_build/circular_buffers_uart/default/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

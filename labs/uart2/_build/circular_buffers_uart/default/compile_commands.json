@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/_build/circular_buffers_uart/default",
+  "command": "/home/artj/.mplab/app-finder/apps/avr-gcc/v7.3.0/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc -DDEBUG -D__AVR128DB48__ -Ddefault=default -I/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/include -x c -g -gdwarf-2 -mmcu=avr128db48 -B/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/gcc/dev/avr128db48 -x c -c -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/circular_buffers_uart_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/include/circularbuff.c.o -c /home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/include/circularbuff.c",
+  "file": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/include/circularbuff.c",
+  "output": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/_build/circular_buffers_uart/default/CMakeFiles/circular_buffers_uart_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/include/circularbuff.c.o"
+},
+{
+  "directory": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/_build/circular_buffers_uart/default",
+  "command": "/home/artj/.mplab/app-finder/apps/avr-gcc/v7.3.0/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc -DDEBUG -D__AVR128DB48__ -Ddefault=default -I/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/include -x c -g -gdwarf-2 -mmcu=avr128db48 -B/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/gcc/dev/avr128db48 -x c -c -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/circular_buffers_uart_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/include/uart.c.o -c /home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/include/uart.c",
+  "file": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/include/uart.c",
+  "output": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/_build/circular_buffers_uart/default/CMakeFiles/circular_buffers_uart_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/include/uart.c.o"
+},
+{
+  "directory": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/_build/circular_buffers_uart/default",
+  "command": "/home/artj/.mplab/app-finder/apps/avr-gcc/v7.3.0/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc -DDEBUG -D__AVR128DB48__ -Ddefault=default -I/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/include -x c -g -gdwarf-2 -mmcu=avr128db48 -B/home/artj/.mchp_packs/Microchip/AVR-Dx_DFP/2.7.321/gcc/dev/avr128db48 -x c -c -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/circular_buffers_uart_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/main.c.o -c /home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/main.c",
+  "file": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/main.c",
+  "output": "/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/_build/circular_buffers_uart/default/CMakeFiles/circular_buffers_uart_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/main.c.o"
+}
+]

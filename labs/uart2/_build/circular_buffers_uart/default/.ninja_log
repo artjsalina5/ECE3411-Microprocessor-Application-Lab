@@ -1,0 +1,5 @@
+# ninja log v7
+1	50	1758570237550635677	CMakeFiles/circular_buffers_uart_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/include/circularbuff.c.o	bea11080754eb09e
+2	69	1758570237552404332	CMakeFiles/circular_buffers_uart_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/main.c.o	b4b2d8b64af770b6
+1	64	1758570237552272749	CMakeFiles/circular_buffers_uart_default_default_AVR_GCC_compile.dir/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/include/uart.c.o	a4b00d7cf0d79ab9
+69	98	1758570237618642268	/home/artj/Documents/ECE3411uCLab/labs/circular_buffer_uart/circular_buffers_uart/out/circular_buffers_uart/default.elf	94a74421948894c8
