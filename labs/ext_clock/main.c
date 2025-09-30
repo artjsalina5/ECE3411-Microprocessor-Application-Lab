@@ -4,6 +4,12 @@
  * @date 2025-09-21
  * @brief Digital Alarm Clock Using RTC
  *
+ * Features:
+ * - Maintain current time using RTC
+ * - Receive time and alarm settings via UART from user
+ * - Trigger alarm (LED blink) when set time is reached
+ * - Periodically display current time and alarm status via UART
+ *
  * Commands:
  * - SET HH:MM:SS   → Set current time
  * - ALARM HH:MM:SS → Set alarm time
@@ -63,7 +69,6 @@ void init_tca0() {
   TCA0_SINGLE_CTRLA = TCA_SINGLE_CLKSEL_DIV256_gc | TCA_SINGLE_ENABLE_bm;
   TCA0_SINGLE_INTCTRL = TCA_SINGLE_OVF_bm; // Enable overflow interrupt
 }
-
 ISR(TCA0_OVF_vect) {
   // Clear interrupt flag
   TCA0.SINGLE.INTFLAGS = TCA_SINGLE_OVF_bm;
@@ -93,8 +98,44 @@ ISR(TCA0_OVF_vect) {
 }
 
 //*********************************************************************
-// CPU Initialization - Keep it simple, use internal oscillator
+// CPU Initialization
 //*********************************************************************
+//
+void CLOCK_XOSCHF_crystal_init(void) {
+  /* Enable crystal oscillator
+   * with frequency range 16Mhz and 4K cycles start-up time
+   */
+  ccp_write_io((uint8_t *)&CLKCTRL.XOSCHFCTRLA,
+               CLKCTRL_RUNSTDBY_bm | CLKCTRL_CSUTHF_4K_gc |
+                   CLKCTRL_FRQRANGE_16M_gc | CLKCTRL_SELHF_XTAL_gc |
+                   CLKCTRL_ENABLE_bm);
+
+  // Confirm the crystal oscillator start-up
+  while (!(CLKCTRL.MCLKSTATUS & CLKCTRL_EXTS_bm)) {
+    ; // Do nothing
+  }
+
+  // set the main clock to use XOSCH as source and enable the CLKOUT pin
+  ccp_write_io((uint8_t *)&CLKCTRL.MCLKCTRLA,
+               CLKCTRL_CLKSEL_EXTCLK_gc | CLKCTRL_CLKOUT_bm);
+
+  // Wait for system oscillator chaning to complete
+  while (CLKCTRL.MCLKSTATUS & CLKCTRL_SOSC_bm) {
+    ; // Do nothing
+  }
+
+  // Clear RUNSTDBY for power save when not in use
+  ccp_write_io((uint8_t *)&CLKCTRL.XOSCHFCTRLA,
+               CLKCTRL.XOSCHFCTRLA & ~CLKCTRL_RUNSTDBY_bm);
+}
+void CLOCK_CFD_CLKMAIN_init(void) {
+  ccp_write_io((uint8_t *)&CLKCTRL.MCLKCTRLA,
+               CLKCTRL_CFDSRC_CLKMAIN_gc | CLKCTRL_CFDEN_bm);
+
+  ccp_write_io((uint8_t *)&CLKCTRL.MCLKINTCTRL,
+               CLKCTRL_INTTYPE_bm | CLKCTRL_CFD_bm);
+}
+
 static inline void init_cpu(void) {
   // ccp_write_io((void *)&(CLKCTRL.OSCHFCTRLA), (CLKCTRL_FRQSEL_16M_gc));
   CPU_CCP = CCP_IOREG_gc;                     // unlock protected IO regs
@@ -178,7 +219,7 @@ int main(void) {
   uint32_t F_CLK_PER = F_CPU;
 
   // Initialize system components
-  init_cpu();
+  CLOCK_XOSCHF_crystal_init();
   init_led();
 
   // Initialize UI command processing system
