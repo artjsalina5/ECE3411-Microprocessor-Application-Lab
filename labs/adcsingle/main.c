@@ -2,21 +2,11 @@
  * @file main.c
  * @author Arturo Salinas
  * @date 2025-09-21
- * @brief Digital Alarm Clock Using RTC
- *
- * Features:
- * - Maintain current time using RTC
- * - Receive time and alarm settings via UART from user
- * - Trigger alarm (LED blink) when set time is reached
- * - Periodically display current time and alarm status via UART
- *
- * Commands:
- * - SET HH:MM:SS   → Set current time
- * - ALARM HH:MM:SS → Set alarm time
- * - SHOW           → Display current time and alarm status
+ * @brief ADC Single Conversion
  */
-#define __AVR_AVR128DB48__
 #define F_CPU 16000000UL // 16 MHz clock speed
+#define __AVR_AVR128DB48__
+#include "include/cpu.h"
 #include "include/uart.h"
 #include "include/ui.h"
 #include <avr/cpufunc.h>
@@ -24,7 +14,6 @@
 #include <avr/io.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <stdio.h>
 // #include <stdlib.h>
 #include <string.h>
 #include <util/delay.h>
@@ -38,7 +27,11 @@ volatile bool alarm_set = false;
 volatile bool alarm_triggered = false;
 volatile uint32_t rtc_interrupt_count = 0;
 
-// Timer-based counters for non-blocking operation
+// Global variable for button pushing
+volatile uint16_t button_counter = 0;
+volatile bool button_pushed = false;
+
+// Timer-based counters
 volatile uint16_t tca_tick_counter = 0;
 volatile uint16_t led_blink_counter = 0;
 volatile uint16_t status_display_counter = 0;
@@ -56,6 +49,16 @@ void init_led() {
   PORTC.OUTCLR = PIN6_bm | PIN7_bm; // all off
 }
 
+//*********************************
+// Button Initialization
+// ********************************
+void init_button() {
+  PORTB.DIRCLR = PIN2_bm;            // Onboard button - input
+  PORTB.PIN2CTRL = PORT_PULLUPEN_bm; // Enable pull-up only
+  PORTB.DIRCLR = PIN5_bm;            // External button - input
+  PORTB.PIN5CTRL = PORT_PULLUPEN_bm; // Enable pull-up only
+}
+
 //************************************************
 // Timer Init - TCA0 for 10ms periodic interrupts
 //************************************************
@@ -69,9 +72,22 @@ void init_tca0() {
   TCA0_SINGLE_CTRLA = TCA_SINGLE_CLKSEL_DIV256_gc | TCA_SINGLE_ENABLE_bm;
   TCA0_SINGLE_INTCTRL = TCA_SINGLE_OVF_bm; // Enable overflow interrupt
 }
+
 ISR(TCA0_OVF_vect) {
   // Clear interrupt flag
   TCA0.SINGLE.INTFLAGS = TCA_SINGLE_OVF_bm;
+
+  if (button_counter < 65535) {
+    if (!(PORTB.IN & PIN2_bm) || !(PORTB.IN & PIN5_bm)) {
+      button_counter++;
+    }
+  } else {
+    button_counter = 0;
+  }
+  if (button_counter >= 100) {
+    button_pushed = true;
+    button_counter = 0;
+  }
 
   // Increment 10ms tick counter
   tca_tick_counter++;
@@ -96,54 +112,27 @@ ISR(TCA0_OVF_vect) {
     display_status_flag = true;
   }
 }
-
-//*********************************************************************
-// CPU Initialization
-//*********************************************************************
-//
-void CLOCK_XOSCHF_crystal_init(void) {
-  /* Enable crystal oscillator
-   * with frequency range 16Mhz and 4K cycles start-up time
-   */
-  ccp_write_io((uint8_t *)&CLKCTRL.XOSCHFCTRLA,
-               CLKCTRL_RUNSTDBY_bm | CLKCTRL_CSUTHF_4K_gc |
-                   CLKCTRL_FRQRANGE_16M_gc | CLKCTRL_SELHF_XTAL_gc |
-                   CLKCTRL_ENABLE_bm);
-
-  // Confirm the crystal oscillator start-up
-  while (!(CLKCTRL.MCLKSTATUS & CLKCTRL_EXTS_bm)) {
-    ; // Do nothing
-  }
-
-  // set the main clock to use XOSCH as source and enable the CLKOUT pin
-  ccp_write_io((uint8_t *)&CLKCTRL.MCLKCTRLA,
-               CLKCTRL_CLKSEL_EXTCLK_gc | CLKCTRL_CLKOUT_bm);
-
-  // Wait for system oscillator chaning to complete
-  while (CLKCTRL.MCLKSTATUS & CLKCTRL_SOSC_bm) {
-    ; // Do nothing
-  }
-
-  // Clear RUNSTDBY for power save when not in use
-  ccp_write_io((uint8_t *)&CLKCTRL.XOSCHFCTRLA,
-               CLKCTRL.XOSCHFCTRLA & ~CLKCTRL_RUNSTDBY_bm);
-}
-void CLOCK_CFD_CLKMAIN_init(void) {
-  ccp_write_io((uint8_t *)&CLKCTRL.MCLKCTRLA,
-               CLKCTRL_CFDSRC_CLKMAIN_gc | CLKCTRL_CFDEN_bm);
-
-  ccp_write_io((uint8_t *)&CLKCTRL.MCLKINTCTRL,
-               CLKCTRL_INTTYPE_bm | CLKCTRL_CFD_bm);
-}
-
-static inline void init_cpu(void) {
-  // ccp_write_io((void *)&(CLKCTRL.OSCHFCTRLA), (CLKCTRL_FRQSEL_16M_gc));
-  CPU_CCP = CCP_IOREG_gc;                     // unlock protected IO regs
-  CLKCTRL.OSCHFCTRLA = CLKCTRL_FRQSEL_16M_gc; // internal HF osc 16 MHz
+//*****************************************************************************
+// ADC Initialization
+//*****************************************************************************
+void ADC_init(void) {
+  ADC0.MUXPOS = ADC_MUXPOS_AIN6_gc;
+  ADC0.CTRLC |= ADC_PRESC_DIV4_gc;
+  ADC0.CTRLA |= ADC_RESSEL_12BIT_gc;
+  ADC0.CTRLA |= ADC_ENABLE_bm;
 }
 
 //*****************************************************************************
-// RTC Initialization - Simplified based on example code
+// DAC Initialization
+//*****************************************************************************
+void DAC_init(void) {
+  // Keep in mind that the lowe
+  DAC0_CTRLA = ADC_ENABLE_bm | DAC_OUTEN_bm;
+  VREF.DAC0REF = VREF_REFSEL_VDD_gc;
+}
+
+//*****************************************************************************
+// RTC Initialization
 //*****************************************************************************
 void RTC_init(void) {
   // 1. Select internal 32.768kHz oscillator (more reliable)
@@ -160,8 +149,9 @@ void RTC_init(void) {
 
   // 5. Global interrupts will be enabled in main()
 }
+
 // ****************************************************************************
-// RTC Interrupt Service Routines - 1 second tick
+// RTC Interrupt Service Routines
 // ****************************************************************************
 ISR(RTC_CNT_vect) {
   // Clear interrupt flag
@@ -169,6 +159,7 @@ ISR(RTC_CNT_vect) {
 
   // Increment interrupt counter for debugging
   rtc_interrupt_count++;
+  PORTC.OUTTGL = PIN7_bm;
 
   // With internal 32kHz oscillator and PER=32768, we get exactly 1 second
   // interrupts Increment seconds directly
@@ -213,20 +204,22 @@ ISR(USART3_DRE_vect) {
 }
 
 // ****************************************************************************
-// Main Function - Digital Alarm Clock (Non-blocking, Interrupt-driven)
+// Main Function
 // ****************************************************************************
 int main(void) {
   uint32_t F_CLK_PER = F_CPU;
 
   // Initialize system components
-  CLOCK_XOSCHF_crystal_init();
+  CLOCK_XOSCHF_16M_init();
   init_led();
+  init_button();
 
   // Initialize UI command processing system
   ui_init();
 
   // Initialize UART for command interface
-  uart_init(3, 9600, F_CLK_PER, NULL);
+  uart_init(3, BAUD_RATE, F_CLK_PER, NULL);
+  ui_set_system_info(F_CLK_PER, BAUD_RATE);
 
   // Initialize TCA0 timer for periodic tasks
   init_tca0();
@@ -239,18 +232,23 @@ int main(void) {
 
   // Show welcome message
   ui_show_welcome();
-
-  // Non-blocking main loop - everything handled by interrupts
+  // Main loop
   while (1) {
     // Process UART commands (non-blocking)
     ui_process_commands();
+    if (button_pushed && !(PORTB.IN & PIN2_bm)) {
+      aos_printf("\r\nButton Pressed! Current Time: %02d:%02d:%02d\r\n",
+                 current_time.hours, current_time.minutes,
+                 current_time.seconds);
+      button_pushed = false; // Reset flag after handling
+    }
 
-    // Check if we need to display periodic status
+    // Display periodic status
     if (display_status_flag) {
       display_status_flag = false;
-      printf("\n--- Status Update ---\n");
+      aos_send("\r\n--- AOS Status Update ---\r\n");
       ui_display_time();
-      printf("> ");
+      aos_send("AOS> \r\n");
     }
   }
 

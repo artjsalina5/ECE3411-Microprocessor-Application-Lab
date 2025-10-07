@@ -1,8 +1,8 @@
 [
-  {
+{
     "directory": "/home/artj/avr/",
     "command": "/home/artj/x-tools/avr/bin/avr-gcc -mmcu=avrxmega4 -D__AVR_XMEGA__=1 -g -Wall -Wextra -std=c11 -I/home/artj/x-tools/avr/avr/include -I/home/artj/x-tools/avr/avr/include -c /home/artj/avr/main.c -o /home/artj/avr/out/main.o",
     "file": "/home/artj/avr/main.c",
     "output": "/home/artj/avr/out/main.o"
-  }
+}
 ]
