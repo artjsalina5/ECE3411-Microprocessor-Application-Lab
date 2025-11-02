@@ -23,7 +23,11 @@ set(timer_buttons_default_default_AVR_GCC_FILE_TYPE_compile
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../include/uart.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../main.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../rtc_usage_examples.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../tca0_usage_examples.c")
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../tca0_usage_examples.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../timer_lab6/include/circularbuff.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../timer_lab6/include/tca0.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../timer_lab6/include/uart.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../timer_lab6/main.c")
 set_source_files_properties(${timer_buttons_default_default_AVR_GCC_FILE_TYPE_compile} PROPERTIES LANGUAGE C)
 set(timer_buttons_default_default_AVR_GCC_FILE_TYPE_compile_cpp)
 set_source_files_properties(${timer_buttons_default_default_AVR_GCC_FILE_TYPE_compile_cpp} PROPERTIES LANGUAGE CXX)
