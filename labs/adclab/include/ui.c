@@ -17,6 +17,7 @@
 #include "ui_adc.h"
 #include "ui_eeprom.h"
 #include "labtest3.h"
+#include "melody.h"
 #include "circularbuff.h"
 #include "dac.h"
 #include "uart.h"
@@ -98,12 +99,6 @@ void ui_set_system_info(uint32_t f_cpu_hz, uint32_t uart_baud) {
   aos_uart_baud = uart_baud;
 }
 
-//================================
-// Waveform Generator State Machine
-//================================
-// Waveform Generator State Machine
-//================================
-// (Now handled by ui_dac.c module)
 
 //================================
 // Internal State
@@ -237,6 +232,7 @@ static void cmd_run_daclab(const char *params);
 static void cmd_run_adclab(const char *params);
 static void cmd_run_eepromlab(const char *params);
 static void cmd_run_labtest3(const char *params);
+static void cmd_play_music(const char *params);
 
 
 static void cmd_run_labtest3(const char *params);
@@ -281,6 +277,8 @@ static const command_t commands[] = {
      "EEPROMLAB               - Launch Password Manager (EEPROM)"},
     {"LABTEST3", cmd_run_labtest3,
      "LABTEST3                - Launch LabTest3 (LED & DAC Control)"},
+    {"PLAYMUSIC", cmd_play_music,
+     "PLAYMUSIC               - Play MIDI melody on DAC (PD6)"},
     {NULL, NULL, NULL} // End marker
 };
 
@@ -337,7 +335,7 @@ void ui_process_commands(void) {
 void ui_show_welcome(void) {
   aos_send("\r\n");
   aos_send("+-----------------------------------------------------------+\r\n");
-  aos_send("|          ARTURO'S OPERATING SYSTEM - ADCLAB               |\r\n");
+  aos_send("|          ARTURO'S OPERATING SYSTEM                     |\r\n");
   aos_send("|                          BOOTED!                          |\r\n");
   aos_send("+-----------------------------------------------------------+\r\n");
   aos_printf("| Version: %-8s         Build: %10s              |\r\n",
@@ -441,15 +439,13 @@ static void execute_next_command(void) {
     aos_send("Type HELP for available commands\r\n\r\n");
   }
   
-  // Only send AOS prompt if we're still in AOS mode (not in DACLab)
-  if (!dac_lab_is_active()) {
+  // Only send AOS prompt if we're still in AOS mode (not in any lab)
+  if (!dac_lab_is_active() && !adc_lab_is_active() && 
+      !eeprom_lab_is_active() && !labtest3_is_active()) {
     aos_send("AOS> ");
   }
 }
 
-//================================
-// Waveform Generator State Machine
-//================================
 
 //================================
 // Command Handler Implementations
@@ -854,4 +850,37 @@ static void cmd_run_labtest3(const char *params) {
   // Initialize and launch LabTest3
   labtest3_init();
   labtest3_show_welcome();
+}
+
+static void cmd_play_music(const char *params) {
+  aos_send("\r\n");
+  aos_send("+-----------------------------------------------------------+\r\n");
+  aos_send("|                     MELODY PLAYER                         |\r\n");
+  aos_send("|                    Playing MIDI...                        |\r\n");
+  aos_send("+-----------------------------------------------------------+\r\n");
+  aos_send("\r\n");
+  aos_send("Playing melody on DAC0 (PD6 buzzer)...\r\n");
+  aos_send("Duration depends on tempo\r\n");
+  aos_send("Notes: 81 notes from E4 to E5\r\n");
+  aos_send("\r\n");
+  
+  // Initialize melody system first
+  melody_init();
+  aos_send("Melody initialized\r\n");
+  
+  // Optional tempo parameter: PLAYMUSIC <tempo>
+  int tempo = 5; // default 5x as requested
+  if (params && *params) {
+    int t = atoi(params);
+    if (t >= 1 && t <= 16) tempo = t;
+  }
+  melody_set_speed((uint8_t)tempo);
+  aos_printf("Tempo set: %dx faster\r\n", tempo);
+  
+  // Play the melody
+  melody_play(midi1, midi1_length);
+  
+  aos_send("\r\n");
+  aos_send("Melody complete!\r\n");
+  aos_send("\r\n");
 }

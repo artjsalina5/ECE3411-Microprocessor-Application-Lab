@@ -14,6 +14,7 @@
 #include "include/ui_adc.h"
 #include "include/ui_eeprom.h"
 #include "include/labtest3.h"
+#include "include/aos_timer.h"
 #include <avr/cpufunc.h>
 #include <avr/interrupt.h>
 #include <avr/io.h>
@@ -70,57 +71,32 @@ void init_button() {
 }
 
 //************************************************
-// Timer Init - TCA0
+// Timer Init - TCA0 (centralized via AOS Timer)
 //************************************************
-// TCA0 generates samples at: freq * 64 samples/second
-// With DIV1 prescaler: period = F_CPU / (freq * 64) - 1
-// Also used for PWM output on WO1 (PC1) for LabTest3
-void init_tca0() {
-  // Configure TCA0 for single slope PWM mode (needed for WO outputs)
-  // For 500 Hz default: period = 16000000 / (500 * 64) - 1 = 499
-  TCA0.SINGLE.CTRLB = TCA_SINGLE_WGMODE_SINGLESLOPE_gc;
-  TCA0.SINGLE.EVCTRL &= ~(TCA_SINGLE_CNTAEI_bm & TCA_SINGLE_CNTBEI_bm);
-
-  // Calculate period for current frequency with DIV1
-  uint32_t period = F_CPU / (freq * 64UL) - 1;
-  TCA0.SINGLE.PER = (uint16_t)period;
-
-  TCA0.SINGLE.CTRLA = TCA_SINGLE_CLKSEL_DIV1_gc | TCA_SINGLE_ENABLE_bm;
-  TCA0.SINGLE.INTCTRL = TCA_SINGLE_OVF_bm; // Enable overflow interrupt
-}
-
-// Update timer period when frequency changes
-void update_tca0_frequency(uint32_t new_freq) {
-  uint32_t period = F_CPU / (new_freq * 64UL) - 1;
-  TCA0.SINGLE.PER = (uint16_t)period;
+// Configure TCA0 for DAC sample stepping and PWM output on WO1 (PC1)
+static void init_tca0_configured(void) {
+  // Single-slope PWM mode, DIV1 clock, enable
+  uint32_t period = F_CPU / (freq * 64UL) - 1UL;
+  aos_tca0_configure((uint16_t)period,
+                     TCA_SINGLE_CLKSEL_DIV1_gc | TCA_SINGLE_ENABLE_bm,
+                     TCA_SINGLE_WGMODE_SINGLESLOPE_gc);
 }
 
 // External variables from ui_adc.c for ADCLab timing
 extern volatile bool adclab_active;
 extern volatile uint32_t adc_countdown;
 
-ISR(TCA0_OVF_vect) {
+static void tca0_dac_handler(void) {
   // DAC Update: Output next sample from pre-scaled sine table at each timer interrupt
   if (dac_update) {
-    // Use pre-computed scaled sine table
     DAC0_setVal(sine_wave_scaled[sine_index]);
-
-    // Move to next sample in sine table
     sine_index++;
     if (sine_index >= 64) {
       sine_index = 0;
     }
   }
 
-  // ADCLab countdown (1ms per tick at typical ~16kHz sample rate)
-  // Decrements every TCA0 tick when ADCLab is active
-  if (adclab_active && adc_countdown > 0) {
-    adc_countdown--;
-  }
-
   // Always count samples for status display (independent of dac_update flag)
-  // 5 seconds = freq * 64 * 5 samples
-  // With 500 Hz default: 500 * 64 * 5 = 160,000 samples
   status_display_counter++;
 
   uint32_t samples_per_5_seconds = freq * 64UL * 5UL;
@@ -128,9 +104,6 @@ ISR(TCA0_OVF_vect) {
     status_display_counter = 0;
     display_status_flag = true;
   }
-
-  // Clear interrupt flag
-  TCA0.SINGLE.INTFLAGS = TCA_SINGLE_OVF_bm;
 }
 
 
@@ -182,8 +155,10 @@ int main(void) {
   // Compute sine wave table at startup
   sine_wave_init();
 
-  // Initialize TCA0 timer for periodic tasks (10ms interrupts)
-  init_tca0();
+  // Initialize and enable TCA0 via AOS Timer
+  init_tca0_configured();
+  aos_tca0_register(tca0_dac_handler);
+  aos_tca0_enable();
 
   // Enable global interrupts
   sei();

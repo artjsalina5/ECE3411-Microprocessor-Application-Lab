@@ -27,3 +27,5 @@ labs/labtest2/build
 labs/newlabtest1/.vscode
 labs/newlabtest1/_build/newlabtest1/default
 labs/newlabtest1/cmake/newlabtest1/default
+labs/adclab/MELODY_INTEGRATION_EXAMPLE.md
+labs/adclab/MELODY_USAGE.md

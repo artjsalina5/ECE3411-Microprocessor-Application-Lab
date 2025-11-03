@@ -5,7 +5,10 @@
  * @brief LabTest 3 Implementation - Adaptive LED & Potentiometer-Controlled DAC
  */
 
+#define F_CPU 16000000UL
+#define __AVR_AVR128DB48__
 #include "labtest3.h"
+#include "aos_timer.h"
 #include <avr/eeprom.h>
 #include <avr/interrupt.h>
 #include <avr/io.h>
@@ -267,17 +270,12 @@ static void init_dac(void) {
 }
 
 //================================
-// Timer TCA1 Initialization (LabTest3 gets PRIORITY - controls everything)
+// Timer TCA1 Initialization
 //================================
 
 static void init_timer_tca1(void) {
-  // TCA1 configured for LabTest3 priority timing
-  // 1ms base tick for all LabTest3 operations
-  // Period = (16000000 / 64) / 1000 - 1 = 249
-  TCA1.SINGLE.CTRLB = TCA_SINGLE_WGMODE_NORMAL_gc;
-  TCA1.SINGLE.PER = 249;
-  TCA1.SINGLE.INTCTRL = TCA_SINGLE_OVF_bm;
-  TCA1.SINGLE.CTRLA = TCA_SINGLE_CLKSEL_DIV64_gc | TCA_SINGLE_ENABLE_bm;
+  // Use AOS timer dispatcher for 1ms base tick
+  aos_tca1_start_1ms();
 }
 
 // Global timing variables - managed entirely by TCA1 ISR
@@ -288,9 +286,9 @@ static volatile uint32_t uart_part2_timer = 0;   // 2000ms Part 2 output
 static volatile uint32_t button_check_timer = 0; // 50ms button debounce
 
 /**
- * @brief TCA1 ISR - LabTest3 PRIORITY timer - handles ALL timing
+ * @brief TCA1 ISR - LabTest3
  */
-ISR(TCA1_OVF_vect) {
+static void labtest3_tca1_handler(void) {
   labtest3_ms_counter++;
 
   // Increment all timing counters
@@ -303,11 +301,8 @@ ISR(TCA1_OVF_vect) {
   // ADC Sampling every 10ms
   if (adc_sample_timer >= 10) {
     adc_sample_timer = 0;
-    adc_sample(); // Sample ADC directly from ISR
+    adc_sample(); // Sample ADC directly from ISR context
   }
-
-  // Clear interrupt flag
-  TCA1.SINGLE.INTFLAGS = TCA_SINGLE_OVF_bm;
 }
 
 //================================
@@ -476,6 +471,8 @@ void labtest3_init(void) {
   init_led_port();
   init_pwm_c1(); // Initialize PWM on PIN C1 for Mode 3
   init_buttons();
+  // Register timer handler and start 1ms tick for LabTest3
+  aos_tca1_register(labtest3_tca1_handler);
   init_timer_tca1(); // Initialize 1ms timer for LabTest3 (using TCA1)
 
   aos_printf("[LabTest3] PWM initialized: TCA0 WO1 on PIN C1\r\n");
@@ -660,54 +657,6 @@ void labtest3_show_welcome(void) {
   aos_send("|  Adaptive LED Patterns & DAC Waveform Generation   |\r\n");
   aos_send("+=====================================================+\r\n\r\n");
 
-  aos_send("=== PART 1: Adaptive LED Pattern ===\r\n");
-  aos_send("  * ADC Input: PORTE0 (12-bit, sampled every 10ms)\r\n");
-  aos_send("  * Averaging: 10 samples over 100ms per specification\r\n");
-  aos_send("  * Output: PORTD (8 LEDs)\r\n");
-  aos_send("  * Mode Selection: mode = ((int)(Vpot * 100)) % 4\r\n\r\n");
-
-  aos_send("  LED Animation Modes:\r\n");
-  aos_send("    - MODE 0: All LEDs OFF\r\n");
-  aos_send("    - MODE 1: Night Rider Chase (PD0-PD5, PD7, skips PD6/DAC)\r\n");
-  aos_send("    - MODE 2: 8Hz Blink (all LEDs synchronous)\r\n");
-  aos_send("    - MODE 3: Single LED Brightness (PWM on PIN C1)\r\n\r\n");
-
-  aos_send("  Button Controls:\r\n");
-  aos_send("    - PB5: Freeze/Unfreeze mode (mode stays fixed)\r\n");
-  aos_send("    - Note: In Mode 3, duty cycle still updates when frozen\r\n");
-  aos_send("    - UART Output: Every 3 seconds\r\n");
-  aos_send("      Format: \"Voltage = XX.XX V, Duty = XX.XX %%, Mode = X "
-           "(frozen/unfrozen)\"\r\n\r\n");
-
-  aos_send("=== PART 2: DAC Waveform Generation ===\r\n");
-  aos_send("  * DAC Output: PIN D6 (DAC0, 10-bit continuous)\r\n");
-  aos_send("  * Waveform: Sine wave from potentiometer control\r\n");
-  aos_send("  * Amplitude: A = Vpot/3.3 * 3.3V (scales with pot voltage)\r\n");
-  aos_send(
-      "  * Frequency (Fixed): f = 10 + (Vpot * 90) Hz [10-100 Hz range]\r\n");
-  aos_send("  * Default State: Fixed frequency mode (always active)\r\n");
-  aos_send("  * Timer: TCA0 interrupt-driven for precise waveform\r\n\r\n");
-
-  aos_send("  PB2 Button: Frequency Sweep Mode\r\n");
-  aos_send("    - Toggles between Fixed and Sweep modes\r\n");
-  aos_send(
-      "    - Sweep: f(t) = 10 + 18*t (0<=t<5), 100 - 18*(t-5) (5<=t<10)\r\n");
-  aos_send("    - Fixed: f = 10 + (Vpot * 90) Hz\r\n");
-  aos_send("    - Amplitude always controlled by potentiometer\r\n");
-  aos_send("    - UART Output: Every 2 seconds\r\n");
-  aos_send("      Format: \"Vpot = X.XX V, A = X.XX V, f = XXX Hz, Mode = "
-           "Sweep/Fixed\"\r\n\r\n");
-
-  aos_send("=== PART 3: EEPROM Persistence ===\r\n");
-  aos_send("  * Save Trigger: Press BOTH PB5 and PB2 simultaneously\r\n");
-  aos_send("  * Saved Parameters:\r\n");
-  aos_send("    - LED mode and freeze state\r\n");
-  aos_send("    - DAC mode (Fixed/Sweep)\r\n");
-  aos_send("    - All settings restored on startup\r\n");
-  aos_send("  * EEPROM Initialization: If empty (0xFF), use defaults:\r\n");
-  aos_send("    - Mode 0 (All OFF)\r\n");
-  aos_send("    - DAC in Fixed Frequency mode\r\n\r\n");
-
   aos_send("=== SYSTEM STATUS ===\r\n");
   aos_send("  * Main Loop: Continuous ADC sampling\r\n");
   aos_send("  * Update Period: Every 100ms (ADC averaging complete)\r\n");
@@ -721,6 +670,9 @@ void labtest3_exit(void) {
   eeprom_save_settings();
 
   labtest3_active = false;
+  // Release TCA1 so other labs can use it
+  aos_tca1_disable();
+  aos_tca1_unregister();
   aos_send("\r\nExiting LabTest3, returning to AOS...\r\n\r\n");
 
   _delay_ms(500);
