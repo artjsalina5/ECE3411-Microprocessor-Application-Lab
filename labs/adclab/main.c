@@ -46,8 +46,6 @@ static volatile bool in_daclab = false;  // true if currently in DACLab mode
 // Sine Table Initialization
 // ********************************
 
-// In dac.h, uses math.h to generate the sine wave
-
 //********************************
 // LED Initialization
 //********************************

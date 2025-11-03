@@ -6,15 +6,16 @@
  */
 #define F_CPU 16000000UL
 #define __AVR_AVR128DB48__
+#include "include/aos_timer.h"
 #include "include/cpu.h"
 #include "include/dac.h"
+#include "include/labtest3.h"
 #include "include/uart.h"
 #include "include/ui.h"
-#include "include/ui_dac.h"
 #include "include/ui_adc.h"
+#include "include/ui_dac.h"
 #include "include/ui_eeprom.h"
-#include "include/labtest3.h"
-#include "include/aos_timer.h"
+#include "include/ui_opamp.h"
 #include <avr/cpufunc.h>
 #include <avr/interrupt.h>
 #include <avr/io.h>
@@ -40,23 +41,17 @@ volatile bool display_status_flag = false;
 extern uint16_t sineWave[64];
 
 // Application state
-static volatile bool in_daclab = false;  // true if currently in DACLab mode
-
-//*********************************
-// Sine Table Initialization
-// ********************************
-
-// In dac.h, uses math.h to generate the sine wave
+static volatile bool in_daclab = false; // true if currently in DACLab mode
 
 //********************************
 // LED Initialization
 //********************************
 void init_led() {
-  PORTD.DIRSET = 0b10111111;    // PD0-5, PD7 as output (skip PD6 for DAC)
-  PORTD.OUTCLR = 0xFF;          // all off
-  PORTB.DIRSET = PIN3_bm;       // configure PB3 as output
-  PORTB.OUTSET = PIN3_bm;       // drive high = LED off
-  PORTC.DIRSET = PIN1_bm;       // PC1 as output
+  PORTD.DIRSET = 0b10111111; // PD0-5, PD7 as output (skip PD6 for DAC)
+  PORTD.OUTCLR = 0xFF;       // all off
+  PORTB.DIRSET = PIN3_bm;    // configure PB3 as output
+  PORTB.OUTSET = PIN3_bm;    // drive high = LED off
+  PORTC.DIRSET = PIN1_bm;    // PC1 as output
   PORTC.OUTCLR = PIN1_bm;
 }
 
@@ -87,7 +82,8 @@ extern volatile bool adclab_active;
 extern volatile uint32_t adc_countdown;
 
 static void tca0_dac_handler(void) {
-  // DAC Update: Output next sample from pre-scaled sine table at each timer interrupt
+  // DAC Update: Output next sample from pre-scaled sine table at each timer
+  // interrupt
   if (dac_update) {
     DAC0_setVal(sine_wave_scaled[sine_index]);
     sine_index++;
@@ -105,7 +101,6 @@ static void tca0_dac_handler(void) {
     display_status_flag = true;
   }
 }
-
 
 //*****************************************************************************
 // USART Interrupt Service Routines
@@ -139,8 +134,8 @@ int main(void) {
 
   // Initialize system components
   CLOCK_XOSCHF_16M_init();
-  init_led();     // Initialize LEDs (PORTD, PORTB, PORTC)
-  init_button();  // Initialize buttons (PB2, PB5)
+  init_led();    // Initialize LEDs (PORTD, PORTB, PORTC)
+  init_button(); // Initialize buttons (PB2, PB5)
 
   // Initialize UI command processing system
   ui_init();
@@ -190,6 +185,9 @@ int main(void) {
     } else if (adc_lab_is_active()) {
       // ADCLab mode - handle voltmeter interface
       adc_lab_process();
+    } else if (opamp_lab_is_active()) {
+      // OPAMPLab mode - handle instrumentation amplifier measurements
+      opamp_lab_process();
     } else if (eeprom_lab_is_active()) {
       // EEPROMLab mode - handle password manager interface
       eeprom_lab_process();

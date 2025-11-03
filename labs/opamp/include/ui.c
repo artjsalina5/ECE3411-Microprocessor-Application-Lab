@@ -16,6 +16,7 @@
 #include "ui_dac.h"
 #include "ui_adc.h"
 #include "ui_eeprom.h"
+#include "ui_opamp.h"
 #include "labtest3.h"
 #include "melody.h"
 #include "circularbuff.h"
@@ -233,6 +234,7 @@ static void cmd_run_adclab(const char *params);
 static void cmd_run_eepromlab(const char *params);
 static void cmd_run_labtest3(const char *params);
 static void cmd_play_music(const char *params);
+static void cmd_run_opamplab(const char *params);
 
 
 static void cmd_run_labtest3(const char *params);
@@ -275,6 +277,8 @@ static const command_t commands[] = {
      "ADCLAB                  - Launch Voltmeter (ADC)"},
     {"EEPROMLAB", cmd_run_eepromlab,
      "EEPROMLAB               - Launch Password Manager (EEPROM)"},
+  {"OPAMPLAB", cmd_run_opamplab,
+   "OPAMPLAB                - Launch 3-op-amp instrumentation lab"},
     {"LABTEST3", cmd_run_labtest3,
      "LABTEST3                - Launch LabTest3 (LED & DAC Control)"},
     {"PLAYMUSIC", cmd_play_music,
@@ -441,7 +445,7 @@ static void execute_next_command(void) {
   
   // Only send AOS prompt if we're still in AOS mode (not in any lab)
   if (!dac_lab_is_active() && !adc_lab_is_active() && 
-      !eeprom_lab_is_active() && !labtest3_is_active()) {
+      !eeprom_lab_is_active() && !labtest3_is_active() && !opamp_lab_is_active()) {
     aos_send("AOS> ");
   }
 }
@@ -831,6 +835,24 @@ static void cmd_run_eepromlab(const char *params) {
   // Initialize and launch EEPROMLab
   eeprom_lab_init();
   eeprom_lab_show_welcome();
+}
+
+static void cmd_run_opamplab(const char *params) {
+  (void)params;
+  aos_send("\r\n");
+  aos_send("Launching OPAMPLab - Instrumentation amplifier...\r\n");
+  aos_send(".\r\n");
+  _delay_ms(300);
+  aos_send("..\r\n");
+  _delay_ms(300);
+  aos_send("...\r\n");
+  _delay_ms(300);
+  aos_send("AOS Has loaded the Subroutine: OPAMPLab\r\n");
+
+  aos_send("(Type EXIT to return to AOS)\r\n");
+
+  opamp_lab_init();
+  opamp_lab_show_welcome();
 }
 
 static void cmd_run_labtest3(const char *params) {
